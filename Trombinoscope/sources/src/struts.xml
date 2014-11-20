@@ -16,6 +16,9 @@
             <result name="test">page_test.jsp</result>
         </action>
         
+        <action name="connexion_*" class="com.teamIT.epsi.struts.actions.ConnexionAction" method="{1}">
+            <result>Index.jsp</result>
+        </action>
 	</package>
 	
 </struts>
