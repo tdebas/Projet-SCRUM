@@ -17,7 +17,7 @@
         </action>
         
         <action name="connexion_*" class="com.teamIT.epsi.struts.actions.ConnexionAction" method="{1}">
-            <result>Index.jsp</result>
+            <result>/JSP/Index.jsp</result>
         </action>
 	</package>
 	

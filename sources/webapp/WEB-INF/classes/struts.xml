@@ -7,15 +7,18 @@
 <struts>
 	<constant name="struts.devMode" value="false" />
 	
-	<package name="default" namespace="/" extends="struts-default">
+	<package name="default" namespace="" extends="struts-default">
 	
 		<default-action-ref name="index" />
 			
 		<action name="index_*" class="com.teamIT.epsi.struts.actions.IndexAction" method="{1}">
-            <result>JSP/Index.jsp</result>
-            <result name="test">JSP/page_test.jsp</result>
+            <result>Index.jsp</result>
+            <result name="test">page_test.jsp</result>
         </action>
         
+        <action name="connexion_*" class="com.teamIT.epsi.struts.actions.ConnexionAction" method="{1}">
+            <result>/JSP/Index.jsp</result>
+        </action>
 	</package>
 	
 </struts>
