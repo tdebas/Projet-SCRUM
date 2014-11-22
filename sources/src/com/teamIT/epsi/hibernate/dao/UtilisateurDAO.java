@@ -41,4 +41,12 @@ public class UtilisateurDAO extends CoreDAO<Utilisateur> {
 	     
 	     return user;
 	 }
+	
+	public void editProfil(Utilisateur utilisateur){
+		
+		session.beginTransaction();
+		session.update(utilisateur);
+		session.getTransaction().commit();
+	
+	}
 }
