@@ -10,15 +10,18 @@
 	<package name="default" namespace="" extends="struts-default">
 	
 		<default-action-ref name="index" />
-			
-		<action name="index_*" class="com.teamIT.epsi.struts.actions.IndexAction" method="{1}">
-            <result>Index.jsp</result>
-            <result name="test">page_test.jsp</result>
-        </action>
-        
+		
         <action name="connexion_*" class="com.teamIT.epsi.struts.actions.ConnexionAction" method="{1}">
             <result>/JSP/Index.jsp</result>
         </action>
+        
+        <action name="utilisateur_*" class="com.teamIT.epsi.struts.actions.UtilisateurAction" method="{1}">
+            <result>/JSP/Edit_Profil.jsp</result>
+        </action>
+        
+        <action name="index_*" class="com.teamIT.epsi.struts.actions.IndexAction" method="{1}">
+            <result>/JSP/Index.jsp</result>
+        </action>
+        
 	</package>
-	
 </struts>

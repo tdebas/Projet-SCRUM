@@ -20,6 +20,7 @@
 	<body>
 		<nav class="navbar navbar-default navbar-static-top" role="navigation">
 			<div class="container-fluid">
-				<p class="navbar-text navbar-right"><h3>TEAM IT</h3></p>
+				<p class="navbar-text navbar-right">Bonjour <s:property value="#session.utilisateur.prenom" /></p>
+				<p class="navbar-text navbar-left"><h3>TEAM IT </h3></p>
 			</div>
 		</nav>
