@@ -89,35 +89,5 @@
 	<classpathentry kind="lib" path="sources/webapp/WEB-INF/lib/asm-3.3.jar"/>
 	<classpathentry kind="lib" path="sources/webapp/WEB-INF/lib/asm-commons-3.3.jar"/>
 	<classpathentry kind="lib" path="sources/webapp/WEB-INF/lib/asm-tree-3.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/EPSI-THOMAS/Downloads/Serveur/Trombinoscope/lib/catalina.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/EPSI-THOMAS/Downloads/Serveur/Trombinoscope/lib/el-api.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/EPSI-THOMAS/Downloads/Serveur/Trombinoscope/lib/jasper-el.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/EPSI-THOMAS/Downloads/Serveur/Trombinoscope/lib/jsp-api.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/EPSI-THOMAS/Downloads/Serveur/Trombinoscope/lib/servlet-api.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/EPSI-THOMAS/Downloads/Serveur/Trombinoscope/lib/tomcat-api.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="sources/webapp/WEB-INF/classes"/>
 </classpath>
