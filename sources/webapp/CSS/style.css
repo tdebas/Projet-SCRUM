@@ -27,3 +27,5 @@ h2{ text-shadow : 1px 1px 2px #aaa; margin-bottom : 30px; }
 .nav-pills{ text-align : right; border-right : solid 1px #435ECA; padding-right:15px; }
 
 .nav-pills li:hover a{ background-color : #435ECA; color : white; }
+
+.navbar-brand{ letter-spacing: 0.1em; }
