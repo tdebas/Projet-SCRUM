@@ -19,8 +19,12 @@
 
 	<body>
 		<nav class="navbar navbar-default navbar-static-top" role="navigation">
-			<div class="container-fluid">
-				<p class="navbar-text navbar-right">Hello <s:property value="#session.utilisateur.prenom" /></p>
-				<p class="navbar-text navbar-left"><h3>TEAM IT </h3></p>
+		 	<div class="container-fluid">
+				<div class="navbar-header">
+				  <a class="navbar-brand"EAM IT>TEAM IT</a>
+				</div>
+				<ul class="nav navbar-nav navbar-right">
+				  <li><a>Hello <s:property value="#session.utilisateur.prenom" /></a></li>
+				</ul>
 			</div>
 		</nav>
