@@ -7,7 +7,7 @@
 	<div class="row">
 		<s:include value="/JSP/layout/leftMenu.jsp" />
 		<div class="col-md-9 content">
-			<h2>Bonjour <s:property value="#session.utilisateur.prenom" /> !</h2>
+			<h2>Hello <s:property value="#session.utilisateur.prenom" /> !</h2>
 			<s:actionmessage/>
 		</div>
 	</div>

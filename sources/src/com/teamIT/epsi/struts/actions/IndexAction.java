@@ -8,4 +8,5 @@ public class IndexAction extends BaseAction
 	{
 		return SUCCESS;
 	}
+	
 }

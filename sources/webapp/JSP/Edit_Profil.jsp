@@ -39,13 +39,13 @@
 		  			<div class="form-group">
 				    	<label for="edit_form" class="col-sm-2 control-label">Gender</label>
 				    	<div class="col-sm-6">
-				    		<s:radio cssClass="form-horizontal" name="utilisateur.sexe" list="#{'1':'Male ','2':'Female'}" value="%{#session.utilisateur.sexe}"></s:radio>
+				    		<s:radio cssClass="form-horizontal" cssStyle="font-weight: normal" name="utilisateur.sexe" list="#{'1':'Male ','2':'Female'}" value="%{#session.utilisateur.sexe}"></s:radio>
 				    	</div>
 		  			</div>
 					<div class="form-group">
 				    	<label for="edit_form" class="col-sm-2 control-label">Alternate</label>
 				    	<div class="col-sm-6">
-				    		<s:radio cssClass="form-horizontal" name="utilisateur.estAlternant" list="#{'1':'Yes ','2':'No'}" value="%{#session.utilisateur.estAlternant}"></s:radio>
+				    		<s:radio cssClass="form-horizontal" cssStyle="font-weight: normal" name="utilisateur.estAlternant" list="#{'1':'Yes ','2':'No'}" value="%{#session.utilisateur.estAlternant}"></s:radio>
 				    	</div>
 		  			</div>
 			  			<div class="form-group">
