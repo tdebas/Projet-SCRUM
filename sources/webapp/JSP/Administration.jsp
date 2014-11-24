@@ -117,12 +117,35 @@
 					  			 		<div class="col-sm-6">
 					  			 			<s:select cssClass="form-control" list="userList" id="nom" name="userList.utilisateur.idUtilisateur" headerKey="-1" />
 					  			 		</div>
+					  			 		<div class="col-sm-2">
+					  			 			<s:submit cssClass="btn btn-default" value="Remove" />
+					  			 		</div>
 					  			 	</div>
-						  			<div class="form-group">
-							    		<div class="col-sm-offset-2 col-sm-6">
-							      			<s:submit cssClass="btn btn-default" value="Remove" />
-							    		</div>
-							  		</div>
+					  			 	<div class="form-group">
+					  			 		<div class="col-sm-3">
+					  			 			<img src="IMG/test.jpg" alt="..." class="img-circle">
+					  			 		</div>
+						  			 	<div class="form-group">
+						  			 		<div class="col-sm-6">
+						  			 			<label>Surname : </label><br/>
+											</div>
+											<div class="col-sm-6">
+						  			 			<label>Firstname : </label><br/>
+											</div>
+						  			 		<div class="col-sm-6">
+						  			 			<label>Mail : </label><br/>
+											</div>
+											<div class="col-sm-6">
+						  			 			<label>Gender : </label><br/>
+											</div>
+											<div class="col-sm-6">
+						  			 			<label>Alternate: </label><br/>
+											</div>
+											<div class="col-sm-6">
+						  			 			<label>Firstname : </label>
+											</div>
+							  			</div>
+					  			 	</div>
 				  			 	</s:form>	
 			  			 	<h2>Changing Roles</h2>
 							  	<s:form theme="simple" cssClass="form-horizontal" role="form" action="administration_changingRoles" method="POST">
@@ -130,10 +153,17 @@
 					  			 		<div class="col-sm-6">
 					  			 			<s:select cssClass="form-control" list="userList" id="nom" name="userList.utilisateur.idUtilisateur" headerKey="-1" />
 					  			 		</div>
+					  			 		<div class="col-sm-2">
+					  			 			<s:submit cssClass="btn btn-default" value="Change" />
+					  			 		</div>
 					  			 	</div>
 						  			<div class="form-group">
-							    		<div class="col-sm-offset-2 col-sm-6">
-							      			<s:submit cssClass="btn btn-default" value="Change" />
+							    		<div class="col-sm-offset-0 col-sm-6">
+							      				<div class="checkbox">
+													<label>
+														<s:radio id="checkbox1" list="#{'1 ':' Etudiant ','2 ':' Administrateur' , '3 ' : ' Super-Administrateur'}"></s:radio>
+													</label>
+												</div>
 							    		</div>
 							  		</div>
 				  			 	</s:form>	
