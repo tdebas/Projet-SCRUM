@@ -38,6 +38,10 @@ public class ConnexionAction extends BaseAction implements ModelDriven<Connexion
     		/* MJ : Log on User */
     		model.utilisateur = uDAO.get(model.getUtilisateur());
 			sessionMap.put("logOn","true");
+			/* MJ : add admin in session */
+			if(model.utilisateur.getDroit().getIdDroit() != 1){
+				sessionMap.put("admin","true");
+			} 
 			/* MJ : add user in session */
 			sessionMap.put("utilisateur", model.utilisateur);
 			uDAO.get(model.getUtilisateur());

@@ -18,5 +18,8 @@ public class BaseAction extends ActionSupport implements SessionAware{
 	public boolean getUserEstConnecte() {
     	return "true".equals(sessionMap.get("logOn"));
     }
+	public boolean getEstAdmin() {
+    	return "true".equals(sessionMap.get("admin"));
+    }
 	
 }

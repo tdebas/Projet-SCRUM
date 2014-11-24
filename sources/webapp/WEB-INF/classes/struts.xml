@@ -19,8 +19,12 @@
             <result>/JSP/Edit_Profil.jsp</result>
         </action>
         
-        <action name="index_*" class="com.teamIT.epsi.struts.actions.IndexAction" method="{1}">
+        <action name="index_*" class="com.teamIT.epsi.struts.actions.ConnexionAction" method="{1}">
             <result>/JSP/Index.jsp</result>
+        </action>
+        
+        <action name="administration_*" class="com.teamIT.epsi.struts.actions.AdministrationAction" method="{1}">
+            <result>/JSP/Administration.jsp</result>
         </action>
         
 	</package>
