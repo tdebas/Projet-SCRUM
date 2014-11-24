@@ -23,7 +23,7 @@ public class UtilisateurDAO extends CoreDAO<Utilisateur> {
 			sb.append(String.format("%02x", b & 0xff));
 		}
 
-        session.beginTransaction();
+       
 		/* MJ : check login and password in database */
 	     Utilisateur user = (Utilisateur) session.createCriteria(Utilisateur.class)
 	    		 .add( Restrictions.eq("mail", utilisateur.getMail()) )
@@ -33,36 +33,20 @@ public class UtilisateurDAO extends CoreDAO<Utilisateur> {
 	     return user;
 	 }
 	
-	public Utilisateur getUserWithPassCrypted(Utilisateur utilisateur) throws Exception{
-		/* MJ : check login and password in database */
-	     Utilisateur user = (Utilisateur) session.createCriteria(Utilisateur.class)
-	    		 .add( Restrictions.eq("mail", utilisateur.getMail()) )
-	    		 .add( Restrictions.eq("password", utilisateur.getPassword()) )
-	    		 .uniqueResult();
-	     
-	     return user;
-	 }
-	
-	public void editUser(Utilisateur utilisateur){
-		
-		session.beginTransaction();
-		session.update(utilisateur);
+	public void saveOrUpdateUser(Utilisateur utilisateur) throws Exception{
+		session.saveOrUpdate(utilisateur);
 		session.getTransaction().commit();
-	
 	}
 	
 	public void removeUser(Utilisateur utilisateur){
-		
-		session.beginTransaction();
 		session.delete(utilisateur);
 		session.getTransaction().commit();
-	
 	}
 	
 	@SuppressWarnings("unchecked")
 	public List<Utilisateur> getAllUser()
 	{
-		List<Utilisateur> user = session.createCriteria(Utilisateur.class).list();
+		List<Utilisateur> user = (List<Utilisateur>) session.createSQLQuery("SELECT nom, prenom FROM utilisateur").list();
 		return user;
 	}
 }

@@ -23,7 +23,7 @@
 		<div class="col-md-9 content">
 			<h2>Manage user</h2>
 				<div id="accordion">
-						<h2>Add User</h2>  			
+						<h2>Add user</h2>  			
 			  			 	<s:form theme="simple" cssClass="form-horizontal" role="form" action="administration_addUser" method="POST">
 			  			 		<div class="form-group">
 				  			 		<label class="col-sm-2 control-label">Surname</label>
@@ -115,7 +115,7 @@
 							  	<s:form theme="simple" cssClass="form-horizontal" role="form" action="administration_removeUser" method="POST">
 				  			 		<div class="form-group">
 					  			 		<div class="col-sm-6">
-					  			 			<s:select cssClass="form-control" list="userList" id="nom" name="utilisateur.idUtilisateur" headerKey="-1" />
+					  			 			<s:select cssClass="form-control" list="userList" id="nom" name="userList.utilisateur.idUtilisateur" headerKey="-1" />
 					  			 		</div>
 					  			 	</div>
 						  			<div class="form-group">
@@ -128,7 +128,7 @@
 							  	<s:form theme="simple" cssClass="form-horizontal" role="form" action="administration_changingRoles" method="POST">
 				  			 		<div class="form-group">
 					  			 		<div class="col-sm-6">
-					  			 			<s:select cssClass="form-control" list="userList" id="nom" name="utilisateur.idUtilisateur" headerKey="-1" />
+					  			 			<s:select cssClass="form-control" list="userList" id="nom" name="userList.utilisateur.idUtilisateur" headerKey="-1" />
 					  			 		</div>
 					  			 	</div>
 						  			<div class="form-group">

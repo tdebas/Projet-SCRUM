@@ -32,7 +32,7 @@ public abstract class CoreDAO<T> {
 
 	public CoreDAO(Class<T> entityClass) {
 		session = HibernateUtil.getSessionFactory().getCurrentSession();
-		
+		session.beginTransaction();
 		this.entityClass = entityClass;
 	}
 

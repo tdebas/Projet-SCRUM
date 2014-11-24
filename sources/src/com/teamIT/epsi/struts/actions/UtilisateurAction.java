@@ -49,7 +49,7 @@ public class UtilisateurAction extends BaseAction implements ModelDriven<Utilisa
 		model.utilisateur.setDroit(((Utilisateur) sessionMap.get("utilisateur")).getDroit());
 		model.utilisateur.setNote(((Utilisateur) sessionMap.get("utilisateur")).getNote());
 		
-		uDAO.editProfil(model.utilisateur);
+		uDAO.saveOrUpdateUser(model.utilisateur);
 		
 		sessionMap.clear();
 
