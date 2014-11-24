@@ -1,6 +1,7 @@
 package com.teamIT.epsi.hibernate.dao;
 
 import java.security.MessageDigest;
+import java.util.List;
 
 import org.hibernate.criterion.Restrictions;
 
@@ -42,11 +43,26 @@ public class UtilisateurDAO extends CoreDAO<Utilisateur> {
 	     return user;
 	 }
 	
-	public void editProfil(Utilisateur utilisateur){
+	public void editUser(Utilisateur utilisateur){
 		
 		session.beginTransaction();
 		session.update(utilisateur);
 		session.getTransaction().commit();
 	
+	}
+	
+	public void removeUser(Utilisateur utilisateur){
+		
+		session.beginTransaction();
+		session.delete(utilisateur);
+		session.getTransaction().commit();
+	
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Utilisateur> getAllUser()
+	{
+		List<Utilisateur> user = session.createCriteria(Utilisateur.class).list();
+		return user;
 	}
 }

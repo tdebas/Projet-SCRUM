@@ -9,7 +9,7 @@
 		<div class="col-md-9 content">
 			<h2>Edit profil</h2>  			
 		  		<div class="panel-body">
-				  <s:form theme="simple" cssClass="form-horizontal" role="form" action="utilisateur_editProfil" method="POST">
+				  <s:form theme="simple" cssClass="form-horizontal" role="form" action="utilisateur_editUser" method="POST">
 					<s:hidden name="utilisateur.idUtilisateur" value="%{#session.utilisateur.idUtilisateur}" />
 					<div class="form-group">
 				    	<label for="edit_form" class="col-sm-2 control-label">Surname</label>
@@ -49,7 +49,7 @@
 		  			</div>
 		  			<div class="form-group">
 		    			<div class="col-sm-offset-2 col-sm-6">
-		      				<s:submit cssClass="btn btn-default" value="Modifier" />
+		      				<s:submit cssClass="btn btn-default" value="Edit" />
 		    			</div>
 		  			</div>
 					</s:form>
