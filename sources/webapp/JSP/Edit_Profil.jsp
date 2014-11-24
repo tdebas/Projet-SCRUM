@@ -47,11 +47,11 @@
 				    		<s:radio cssClass="form-horizontal" cssStyle="font-weight: normal" name="utilisateur.estAlternant" list="#{'1':'Yes ','2':'No'}" value="%{#session.utilisateur.estAlternant}"></s:radio>
 				    	</div>
 		  			</div>
-			  			<div class="form-group">
-			    			<div class="col-sm-offset-2 col-sm-6">
-			      				<s:submit cssClass="btn btn-default" value="Modifier" />
-			    			</div>
-			  			</div>
+		  			<div class="form-group">
+		    			<div class="col-sm-offset-2 col-sm-6">
+		      				<s:submit cssClass="btn btn-default" value="Modifier" />
+		    			</div>
+		  			</div>
 					</s:form>
 				 </div>
   			
