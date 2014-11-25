@@ -27,5 +27,9 @@
             <result>/JSP/Administration.jsp</result>
         </action>
         
+        <action name="trombinoscope_*" class="com.teamIT.epsi.struts.actions.TrombiAction" method="{1}">
+            <result>/JSP/View_Trombi.jsp</result>
+        </action>
+        
 	</package>
 </struts>
