@@ -8,7 +8,10 @@
 		<link rel="stylesheet" href="http://localhost:8080/trombi/CSS/bootstrap.css" type="text/css" />
 		<link rel="stylesheet" href="http://localhost:8080/trombi/CSS/bootstrap-theme.css" type="text/css" />
 		<link rel="stylesheet" href="http://localhost:8080/trombi/CSS/style.css" type="text/css" />
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 		
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 		<script type="text/javascript" src="http://localhost:8080/trombi/JS/bootstrap.js"></script>
 		<script type="text/javascript" src="http://localhost:8080/trombi/JS/bootstrap.min.js"></script>
 		<script type="text/javascript" src="http://localhost:8080/trombi/JS/jquery-1.9.min.js"></script>
