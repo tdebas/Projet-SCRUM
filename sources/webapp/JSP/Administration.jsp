@@ -114,8 +114,8 @@
 					  			 		</div>
 					  			 	</div>
 					  			 	<div class="form-group">
-					  			 		<div class="col-sm-3">
-					  			 			<img src="IMG/test.jpg" alt="..." class="img-circle">
+					  			 		<div class="col-sm-4">
+					  			 			<img src="IMG/test.jpg" alt="..." class="img-circle" width="80%">
 					  			 		</div>
 						  			 	<div class="form-group">
 						  			 		<div class="col-sm-6">
