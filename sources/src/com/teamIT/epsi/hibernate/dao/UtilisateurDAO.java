@@ -46,7 +46,13 @@ public class UtilisateurDAO extends CoreDAO<Utilisateur> {
 	@SuppressWarnings("unchecked")
 	public List<Utilisateur> getAllUser()
 	{
-		List<Utilisateur> user = (List<Utilisateur>) session.createSQLQuery("SELECT nom, prenom FROM utilisateur").list();
+		List<Utilisateur> user = (List<Utilisateur>) session.createSQLQuery("SELECT nom FROM utilisateur").list();
 		return user;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Utilisateur> getAllUsers(){
+		 List<Utilisateur> userList = session.createCriteria(Utilisateur.class).list();
+		 return userList;
 	}
 }
