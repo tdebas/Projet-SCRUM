@@ -7,12 +7,17 @@
 	<s:include value="/JSP/layout/leftMenu.jsp" />
 	<div class="row">
 		<s:iterator value="ListUtilisateur">
-		  <div class="col-sm-6 col-md-2">
+		  <div class="col-sm-6 col-md-3">
 		    <div class="thumbnail">
-		      <img data-src="${ CheminMedia }" alt="PhotoTrombi">
+		      <img src="http://localhost:8080/trombi/IMG/photo.jpg" class="img-rounded">
 		      <div class="caption">
-		        <h4 style="text-align:center;"><s:property value="nom"/> <s:property value="prenom"/></h4>
-		        <p style="text-align:center;"><a href="#" class="btn btn-default" role="button">See profil</a></p>
+		        <h4><s:property value="nom"/> <s:property value="prenom"/></h4>
+		        <s:if test="sexe == 1">
+		        	<p><a href="#" class="btn btn-primary" role="button">See profil</a></p>
+		        </s:if>
+		        <s:else>
+		        	<p><a href="#" class="btn btn-warning" role="button">See profil</a></p>
+		        </s:else>
 		      </div>
 		    </div>
 		  </div>

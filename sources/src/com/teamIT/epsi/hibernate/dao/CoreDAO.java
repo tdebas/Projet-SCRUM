@@ -42,11 +42,6 @@ public abstract class CoreDAO<T> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<T> getAll() {
-		return createCriteria().list();
-	}
-
-	@SuppressWarnings("unchecked")
 	public T load(Serializable id) {
 		return (T) session.load(entityClass, id);
 	}

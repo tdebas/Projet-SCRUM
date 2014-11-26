@@ -51,7 +51,7 @@ public class UtilisateurDAO extends CoreDAO<Utilisateur> {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Utilisateur> getAllUsers(){
+	public List<Utilisateur> getAll(){
 		 List<Utilisateur> userList = session.createCriteria(Utilisateur.class).list();
 		 return userList;
 	}
