@@ -54,6 +54,11 @@
 							    	</div>
 					  			</div>
 					  			<div class="form-group">
+							    		<div class="col-sm-offset-2 col-sm-6">
+							      			<s:submit cssClass="btn btn-default" value="Ajouter une photo" />
+							    		</div>
+							  		</div>
+					  			<div class="form-group">
 						    		<div class="col-sm-offset-2 col-sm-6">
 						      			<s:submit cssClass="btn btn-default" value="Add" />
 						    		</div>
@@ -153,7 +158,7 @@
 							    		<div class="col-sm-offset-0 col-sm-6">
 							      				<div class="checkbox">
 													<label>
-														<s:radio id="checkbox1" list="#{'1 ':' Etudiant ','2 ':' Administrateur' , '3 ' : ' Super-Administrateur'}"></s:radio>
+														<s:radio id="radio" name="radio_droit" list="#{'1 ':' Etudiant ','2 ':' Administrateur' , '3 ' : ' Super-Administrateur'}"></s:radio>
 													</label>
 												</div>
 							    		</div>
