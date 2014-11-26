@@ -24,7 +24,7 @@
 		<nav class="navbar navbar-default navbar-static-top" role="navigation">
 		 	<div class="container-fluid">
 				<div class="navbar-header">
-				  <a class="navbar-brand">TEAM IT : Trombinoscope</a>
+					<a class="navbar-brand">TEAM IT : Trombinoscope</a>
 				</div>
 				<ul class="nav navbar-nav navbar-right">
 				  <li><a>Hello <s:property value="#session.utilisateur.prenom" /></a></li>

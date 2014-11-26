@@ -43,21 +43,24 @@
 		
 		<br/><br/>
 		
-			<h2>Autres photos de <s:property value="utilisateur.nom"/> <s:property value="utilisateur.prenom"/></h2>
-			<blockquote>
+		<h2>Others pictures of <s:property value="utilisateur.nom"/> <s:property value="utilisateur.prenom"/></h2>
+		<blockquote>
 			<div class="jumbotron">
-			<div class="row">
-				<s:iterator value="mediasList">
-				  <div class="col-sm-6 col-md-3">
-				    <div class="thumbnail">
-				      <img src='<s:property value="chemin"/>' class="img-rounded">
-				      <div class="caption">
-				        <!--  note -->
-				      </div>
-				    </div>
-				  </div>
-				</s:iterator>
-			</div>
+				<div class="row">
+					<s:iterator value="mediasList">
+					  <div class="col-sm-6 col-md-3">
+					    <div class="thumbnail">
+					      
+					      <s:if test="mediasList.size() == 0"><h2>No media found></h2></s:if>
+					      
+					      <img src='<s:property value="chemin"/>' class="img-rounded">
+					      <div class="caption">
+					        <!--  note -->
+					      </div>
+					    </div>
+					  </div>
+					</s:iterator>
+				</div>
 			</div>
 		</blockquote>
 	</div>

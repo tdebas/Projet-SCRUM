@@ -54,6 +54,21 @@ public class UtilisateurAction extends BaseAction implements ModelDriven<Utilisa
 	public String profil(){
 		model.utilisateur = uDAO.getUserById(model.idUser);
 		model.mediasList = mDAO.getAllByUserId(model.utilisateur);
+		
+		if (model.utilisateur.sexe == "1")
+		{
+			model.utilisateur.sexe = "Man";
+		}else{
+			model.utilisateur.sexe = "Woman";
+		}
+		
+		if (model.utilisateur.estAlternant == "1")
+		{
+			model.utilisateur.estAlternant = "Yes";
+		}else{
+			model.utilisateur.estAlternant = "No";
+		}
+		
 		return "profil";
 	}
 	public String editProfil() throws Exception{
