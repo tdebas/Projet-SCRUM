@@ -44,20 +44,20 @@
 					  			<div class="form-group">
 							    	<label for="edit_form" class="col-sm-2 control-label">Gender</label>
 							    	<div class="col-sm-6">
-							    		<s:radio cssClass="form-horizontal" cssStyle="font-weight: normal" name="utilisateur.sexe" list="#{'1':'Male ','2':'Female'}" ></s:radio>
+							    		<s:radio cssClass="form-horizontal" cssStyle="font-weight: normal" name="utilisateur.sexe" list="#{'1 ':' Male ','2 ':' Female'}" ></s:radio>
 							    	</div>
 					  			</div>
 								<div class="form-group">
 							    	<label for="edit_form" class="col-sm-2 control-label">Alternate</label>
 							    	<div class="col-sm-6">
-							    		<s:radio cssClass="form-horizontal" cssStyle="font-weight: normal" name="utilisateur.estAlternant" list="#{'1':'Yes ','2':'No'}"></s:radio>
+							    		<s:radio cssClass="form-horizontal" cssStyle="font-weight: normal" name="utilisateur.estAlternant" list="#{'1 ':' Yes ','2 ':' No'}"></s:radio>
 							    	</div>
 					  			</div>
 					  			<div class="form-group">
-							    		<div class="col-sm-offset-2 col-sm-6">
-							      			<s:submit cssClass="btn btn-default" value="Ajouter une photo" />
-							    		</div>
-							  		</div>
+						    		<div class="col-sm-offset-2 col-sm-6">
+						      			<input type="file" Class="btn btn-default" accept="image/gif, image/jpeg, image/png" />
+						    		</div>
+							  	</div>
 					  			<div class="form-group">
 						    		<div class="col-sm-offset-2 col-sm-6">
 						      			<s:submit cssClass="btn btn-default" value="Add" />

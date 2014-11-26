@@ -5,7 +5,6 @@
 	<p class="userOnline"><s:property value="#session.utilisateur.nom" /> <s:property value="#session.utilisateur.prenom" /></p>
 	<h5><span class="glyphicon glyphicon-user"></span> Main menu</h5>
 	<ul class="nav nav-pills nav-stacked">
-	    <li><a href='<s:url action="connexion_execute"/>'>Main menu <span class="glyphicon glyphicon-home"></span></a></li>
 	    <li><a href='<s:url action="connexion_execute"/>'>Home <span class="glyphicon glyphicon-home"></span></a></li>
 	    <li><a href='<s:url action="utilisateur_executeProfil"/>'>Edit profil <span class="glyphicon glyphicon-pencil"></span></a></li>
 	    <li><a href='<s:url action="trombinoscope_execute"/>'>Trombinoscope <span class="glyphicon glyphicon-th"></span></a></li>
