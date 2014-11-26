@@ -17,6 +17,7 @@
         
         <action name="utilisateur_*" class="com.teamIT.epsi.struts.actions.UtilisateurAction" method="{1}">
             <result>/JSP/Edit_Profil.jsp</result>
+            <result name="profil">/JSP/Profil.jsp</result>
         </action>
         
         <action name="index_*" class="com.teamIT.epsi.struts.actions.ConnexionAction" method="{1}">

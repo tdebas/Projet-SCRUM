@@ -43,6 +43,12 @@ public class UtilisateurDAO extends CoreDAO<Utilisateur> {
 		session.getTransaction().commit();
 	}
 	
+	public Utilisateur getUserById(int id){
+		 Utilisateur user = (Utilisateur) session.createCriteria(Utilisateur.class)
+				 .add( Restrictions.eq("idUtilisateur", id)).uniqueResult();
+		 return user;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Utilisateur> getAllUser()
 	{

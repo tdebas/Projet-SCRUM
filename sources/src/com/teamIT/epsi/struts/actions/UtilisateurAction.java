@@ -11,7 +11,8 @@ public class UtilisateurAction extends BaseAction implements ModelDriven<Utilisa
 	public class UtilisateurModel{
 		
 		public Utilisateur utilisateur;
-
+		public Integer idUser;
+		
 		public Utilisateur getUtilisateur() {
 			return utilisateur;
 		}
@@ -19,18 +20,28 @@ public class UtilisateurAction extends BaseAction implements ModelDriven<Utilisa
 		public void setUtilisateur(Utilisateur utilisateur) {
 			this.utilisateur = utilisateur;
 		}
+
+		public Integer getIdUser() {
+			return idUser;
+		}
+
+		public void setIdUser(Integer idUser) {
+			this.idUser = idUser;
+		}
 		
 	}
 	private static final long serialVersionUID = 6378378866497247173L;
 	public UtilisateurModel model = new UtilisateurModel();
 	public UtilisateurDAO uDAO = new UtilisateurDAO();
-	
 	public String executeProfil()
 	{
-		
 		return SUCCESS;
 	}
 	
+	public String profil(){
+		model.utilisateur = uDAO.getUserById(model.idUser);
+		return "profil";
+	}
 	public String editProfil() throws Exception{
 		
 		/* MJ : crypt password */
