@@ -1,7 +1,6 @@
 package com.teamIT.epsi.struts.actions;
 
 import java.util.List;
-
 import com.teamIT.epsi.hibernate.dao.UtilisateurDAO;
 import com.teamIT.epsi.hibernate.tables.Utilisateur;
 
@@ -14,6 +13,7 @@ public class TrombiAction extends BaseAction {
 	public String execute()
 	{
 		ListUtilisateur = uDAO.getAll();
+		
 		return SUCCESS;
 	}
 
@@ -24,6 +24,5 @@ public class TrombiAction extends BaseAction {
 	public void setListUtilisateur(List<Utilisateur> listUtilisateur) {
 		ListUtilisateur = listUtilisateur;
 	}
-	
-	
+		
 }

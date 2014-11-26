@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Utilisateur {
 
 	public int idUtilisateur, note;
-	public String nom, prenom, mail, password, sexe, estAlternant;
+	public String nom, prenom, mail, password, sexe, estAlternant, chemin;
 	public Droit droit;
 	
 	/* Constructor empty */
@@ -23,7 +23,7 @@ public class Utilisateur {
 	/* Constructor */
 	public Utilisateur(int idUtilisateur, int note, String nom, String prenom,
 			String mail, String password, String sexe, String estAlternant,
-			com.teamIT.epsi.hibernate.tables.Droit droit) {
+			String chemin, Droit droit) {
 		super();
 		this.idUtilisateur = idUtilisateur;
 		this.note = note;
@@ -33,8 +33,10 @@ public class Utilisateur {
 		this.password = password;
 		this.sexe = sexe;
 		this.estAlternant = estAlternant;
+		this.chemin = chemin;
 		this.droit = droit;
 	}
+	
 	/* Getters & Setters */
 	
 	@Id
@@ -119,6 +121,15 @@ public class Utilisateur {
 
 	public void setDroit(Droit droit) {
 		this.droit = droit;
+	}
+	
+	@Column(name = "chemin", nullable = false)
+	public String getChemin() {
+		return chemin;
+	}
+
+	public void setChemin(String chemin) {
+		this.chemin = chemin;
 	}
 	
 }
