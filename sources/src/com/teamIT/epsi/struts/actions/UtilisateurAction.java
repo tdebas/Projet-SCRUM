@@ -1,20 +1,32 @@
 package com.teamIT.epsi.struts.actions;
 
 import java.security.MessageDigest;
+import java.util.List;
 
 import com.opensymphony.xwork2.ModelDriven;
+import com.teamIT.epsi.hibernate.dao.MediasDAO;
 import com.teamIT.epsi.hibernate.dao.UtilisateurDAO;
+import com.teamIT.epsi.hibernate.tables.Medias;
 import com.teamIT.epsi.hibernate.tables.Utilisateur;
 
 public class UtilisateurAction extends BaseAction implements ModelDriven<UtilisateurAction.UtilisateurModel>{
 	
 	public class UtilisateurModel{
 		
+		public List<Medias> mediasList;
 		public Utilisateur utilisateur;
 		public Integer idUser;
 		
 		public Utilisateur getUtilisateur() {
 			return utilisateur;
+		}
+
+		public List<Medias> getMediasList() {
+			return mediasList;
+		}
+
+		public void setMediasList(List<Medias> mediasList) {
+			this.mediasList = mediasList;
 		}
 
 		public void setUtilisateur(Utilisateur utilisateur) {
@@ -33,6 +45,7 @@ public class UtilisateurAction extends BaseAction implements ModelDriven<Utilisa
 	private static final long serialVersionUID = 6378378866497247173L;
 	public UtilisateurModel model = new UtilisateurModel();
 	public UtilisateurDAO uDAO = new UtilisateurDAO();
+	public MediasDAO mDAO = new MediasDAO();
 	public String executeProfil()
 	{
 		return SUCCESS;
@@ -40,6 +53,7 @@ public class UtilisateurAction extends BaseAction implements ModelDriven<Utilisa
 	
 	public String profil(){
 		model.utilisateur = uDAO.getUserById(model.idUser);
+		model.mediasList = mDAO.getAllByUserId(model.utilisateur);
 		return "profil";
 	}
 	public String editProfil() throws Exception{

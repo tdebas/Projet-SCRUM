@@ -6,7 +6,7 @@
 <s:if test="userEstConnecte">
 	<s:include value="/JSP/layout/leftMenu.jsp" />
 	<div class="col-md-10 content">
-		<h2>Trombinoscope</h2>  		
+		<h2>Trombinoscope</h2>
 		<div class="row">
 			<s:iterator value="ListUtilisateur">
 			<s:url action="utilisateur_profil" var="Utilisateur"><s:param name="idUser"><s:property value="idUtilisateur"/></s:param></s:url>

@@ -118,31 +118,31 @@
 					  			 			<s:submit cssClass="btn btn-default" value="Remove" />
 					  			 		</div>
 					  			 	</div>
-					  			 	<div class="form-group">
-					  			 		<div class="col-sm-4">
-					  			 			<img src="IMG/test.jpg" alt="..." class="img-circle" width="80%">
-					  			 		</div>
-						  			 	<div class="form-group">
-						  			 		<div class="col-sm-6">
-						  			 			<label>Surname : </label><br/>
+					  			 	<div class="form-group"><br/>
+										<div class="col-sm-4">
+											<img src="IMG/test.jpg" alt="..." class="img-circle" width="70%">
+										</div>
+								 		<div class="form-group">
+								 			<div class="col-sm-6" style="margin-top: 50px;">
+								 				<div class="form-group"><label style="width: 30%;">Surname</label><label> : <s:property value="utilisateur.nom"/></label></div>
 											</div>
 											<div class="col-sm-6">
-						  			 			<label>Firstname : </label><br/>
+												<div class="form-group"><label style="width: 30%;">Firstname</label><label>: <s:property value="utilisateur.prenom"/></label></div>
 											</div>
-						  			 		<div class="col-sm-6">
-						  			 			<label>Mail : </label><br/>
-											</div>
-											<div class="col-sm-6">
-						  			 			<label>Gender : </label><br/>
+								 			<div class="col-sm-6">
+								 				<div class="form-group"><label style="width: 30%;">Mail</label><label> : <s:property value="utilisateur.mail"/></label></div>
 											</div>
 											<div class="col-sm-6">
-						  			 			<label>Alternate: </label><br/>
+								 				<div class="form-group"><label style="width: 30%;">Gender</label><label> : <s:property value="utilisateur.sexe" /></label></div>
 											</div>
 											<div class="col-sm-6">
-						  			 			<label>Firstname : </label>
+								 				<div class="form-group"><label style="width: 30%;">Alternate</label><label>: <s:property value="utilisateur.estAlternant"/></label></div>
 											</div>
-							  			</div>
-					  			 	</div>
+											<div class="col-sm-6">
+								 				<div class="form-group"><label style="width: 30%;">Moyenne des notes</label><label> : <s:property value="utilisateur.note"/></label></div>
+											</div>
+										</div>
+									</div>
 				  			 	</s:form>	
 			  			 	<h2>Changing Roles</h2>
 							  	<s:form theme="simple" cssClass="form-horizontal" role="form" action="administration_changingRoles" method="POST">
