@@ -19,10 +19,9 @@ public class Medias {
 	
 	public Medias(){}
 
-	public Medias(int idMedia, String chemin,
+	public Medias(String chemin,
 			com.teamIT.epsi.hibernate.tables.Utilisateur utilisateur) {
 		super();
-		this.idMedia = idMedia;
 		this.chemin = chemin;
 		this.utilisateur = utilisateur;
 	}
