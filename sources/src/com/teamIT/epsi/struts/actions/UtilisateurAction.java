@@ -63,7 +63,7 @@ public class UtilisateurAction extends BaseAction implements ModelDriven<Utilisa
 			model.utilisateur.setSexe("Not specified");
 		}
 		
-		if (model.utilisateur.estAlternant.equals("1")){
+		if(model.utilisateur.estAlternant.equals("1")){
 			model.utilisateur.setEstAlternant("Yes");
 		} else if(model.utilisateur.estAlternant.equals("2")){
 			model.utilisateur.setEstAlternant("No");
