@@ -55,18 +55,20 @@ public class UtilisateurAction extends BaseAction implements ModelDriven<Utilisa
 		model.utilisateur = uDAO.getUserById(model.idUser);
 		model.mediasList = mDAO.getAllByUserId(model.utilisateur);
 		
-		if (model.utilisateur.sexe == "1")
-		{
-			model.utilisateur.sexe = "Man";
-		}else{
-			model.utilisateur.sexe = "Woman";
+		if (model.utilisateur.sexe.equals("1")){
+			model.utilisateur.setSexe("Man");
+		} else if(model.utilisateur.sexe.equals("2")){
+			model.utilisateur.setSexe("Woman");
+		} else {
+			model.utilisateur.setSexe("Not specified");
 		}
 		
-		if (model.utilisateur.estAlternant == "1")
-		{
-			model.utilisateur.estAlternant = "Yes";
-		}else{
-			model.utilisateur.estAlternant = "No";
+		if (model.utilisateur.estAlternant.equals("1")){
+			model.utilisateur.setEstAlternant("Yes");
+		} else if(model.utilisateur.estAlternant.equals("2")){
+			model.utilisateur.setEstAlternant("No");
+		} else {
+			model.utilisateur.setEstAlternant("Not specified");
 		}
 		
 		return "profil";
