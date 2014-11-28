@@ -17,20 +17,6 @@
 			<param name="ConversionPattern" value="%d %-5p [%t] %c - %m%n" />
 		</layout>
 	</appender>
-
-<!-- 	<appender name="UserLogon" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="../../../../logs/UserLogon.log" />
-		<param name="MaxFileSize" value="10MB" />
-		<param name="MaxBackupIndex" value="20" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%d %-5p [%t] %c - %m%n" />
-		</layout>
-	</appender>
-	
-	<category name="com.enersys.spd.struts.action.AutoLogin">
-	  <priority value="INFO" />
-	  <appender-ref ref="UserLogon" />
-   	</category> -->
 	
 	<root>
 		<priority value="INFO" />

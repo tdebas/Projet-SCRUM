@@ -1,35 +1,25 @@
 package com.teamIT.epsi.hibernate.dao;
 
-import java.security.MessageDigest;
 import java.util.List;
 
 import org.hibernate.criterion.Restrictions;
 
 import com.teamIT.epsi.hibernate.tables.Utilisateur;
+import com.teamIT.epsi.struts.method.DiversMethod;
 
 public class UtilisateurDAO extends CoreDAO<Utilisateur> {
-
+	
 	public UtilisateurDAO() {
 		super(Utilisateur.class);
 	}
 	
+	public DiversMethod dm = new DiversMethod();
+	
 	public Utilisateur get(Utilisateur utilisateur) throws Exception{
-		/* MJ : Crypt password of MD5 */
-		MessageDigest md = MessageDigest.getInstance("MD5");
-		md.update(utilisateur.getPassword().getBytes());
-		byte[] digest = md.digest();
-		StringBuffer sb = new StringBuffer();
-		for (byte b : digest) {
-			sb.append(String.format("%02x", b & 0xff));
-		}
-
-       
-		/* MJ : check login and password in database */
 	     Utilisateur user = (Utilisateur) session.createCriteria(Utilisateur.class)
 	    		 .add( Restrictions.eq("mail", utilisateur.getMail()) )
-	    		 .add( Restrictions.eq("password", sb.toString()) )
+	    		 .add( Restrictions.eq("password", dm.crypt(utilisateur)) )
 	    		 .uniqueResult();
-	     
 	     return user;
 	 }
 	
@@ -50,8 +40,7 @@ public class UtilisateurDAO extends CoreDAO<Utilisateur> {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Utilisateur> getAllUser()
-	{
+	public List<Utilisateur> getAllUser() {
 		List<Utilisateur> user = (List<Utilisateur>) session.createSQLQuery("SELECT nom FROM utilisateur").list();
 		return user;
 	}
@@ -60,5 +49,10 @@ public class UtilisateurDAO extends CoreDAO<Utilisateur> {
 	public List<Utilisateur> getAll(){
 		 List<Utilisateur> userList = session.createCriteria(Utilisateur.class).list();
 		 return userList;
+	}
+	
+	public Integer getMax(){
+		 Integer i = (Integer) session.createSQLQuery("SELECT MAX(id) FROM utilisateur").uniqueResult();
+		 return i;
 	}
 }

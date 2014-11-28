@@ -55,7 +55,7 @@
 			  			</div>
 			  			<div class="form-group">
 			  				<label for="edit_form" class="col-sm-2 control-label">Photo</label>
-				    		<div class="col-sm-offset-2 col-sm-6">
+				    		<div class="col-sm-6">
 				      			<s:file name="upload" label="File" accept="image/gif, image/jpeg, image/png" />
 				    		</div>
 					  	</div>

@@ -6,6 +6,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.hibernate.Criteria;
@@ -30,14 +31,18 @@ public abstract class CoreDAO<T> {
 	}
 
 	public CoreDAO(Class<T> entityClass) {
-		session = HibernateUtil.getSessionFactory().getCurrentSession();
-		session.beginTransaction();
+		session = HibernateUtil.currentSession();
 		this.entityClass = entityClass;
 	}
 
 	@SuppressWarnings("unchecked")
 	public T get(Serializable id) {
 		return (T) session.get(entityClass, id);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<T> getAll() {
+		return createCriteria().list();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -126,3 +131,4 @@ public abstract class CoreDAO<T> {
 		return session;
 	}
 }
+

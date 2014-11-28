@@ -9,10 +9,7 @@ public class DroitDAO extends CoreDAO<Droit>{
 		super(Droit.class);
 	}
 	
-	public Droit getDroitById(int idDroit){
-		
-		session.beginTransaction();
-		
+	public Droit getDroitById(int idDroit){		
 		Droit droit = (Droit) session.createCriteria(Droit.class)
 	    		 .add( Restrictions.eq("id", idDroit))
 	    		 .uniqueResult();
