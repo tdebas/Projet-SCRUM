@@ -7,14 +7,14 @@
 	<s:include value="/JSP/layout/leftMenu.jsp" />
 	<div class="col-md-10 content">
 		<h2><s:property value="utilisateur.nom"/> <s:property value="utilisateur.prenom"/></h2>  		
-		
-		
+
 		<blockquote>
 			<div class="jumbotron">
 			<div class="row">
 				<div class="form-group"><br/>
 					<div class="col-md-4">
 						<img src='<s:property value="utilisateur.chemin"/>' class="img-circle" width="70%">
+						<!-- note -->
 					</div>
 					<div class="col-md-8">
 				 		<div class="form-group">

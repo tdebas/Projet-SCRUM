@@ -26,7 +26,7 @@
 	  			 		<div class="form-group">
 		  			 		<label class="col-sm-2 control-label">Firstname</label>
 		  			 		<div class="col-sm-6">
-		  			 			<s:textfield cssClass="form-control" id="nom" name="utilisateur.prenom" />
+		  			 			<s:textfield cssClass="form-control" id="prenom" name="utilisateur.prenom" />
 		  			 		</div>
 	  			 		</div>
 	  			 		<div class="form-group">
@@ -76,7 +76,7 @@
 	  			 		<div class="form-group">
 		  			 		<label class="col-sm-2 control-label">Firstname</label>
 		  			 		<div class="col-sm-6">
-		  			 			<s:textfield cssClass="form-control" id="nom" name="utilisateur.prenom" />
+		  			 			<s:textfield cssClass="form-control" id="prenom" name="utilisateur.prenom" />
 		  			 		</div>
 	  			 		</div>
 	  			 		<div class="form-group">
@@ -113,7 +113,7 @@
 				  	<s:form theme="simple" cssClass="form-horizontal" role="form" action="administration_removeUser" method="POST">
 	  			 		<div class="form-group">
 		  			 		<div class="col-sm-6">
-		  			 			<s:select cssClass="form-control" list="userList" id="nom" name="userList.utilisateur.idUtilisateur" headerKey="-1" />
+		  			 			<s:select cssClass="form-control" list="userList" id="select_user" name="userList.utilisateur.idUtilisateur" headerKey="-1" />
 		  			 		</div>
 		  			 		<div class="col-sm-2">
 		  			 			<s:submit cssClass="btn btn-default" value="Remove" />
@@ -121,28 +121,27 @@
 		  			 	</div>
 		  			 	<div class="form-group">
 		  			 		<div class="col-sm-4">
-		  			 			<img src="IMG/test.jpg" alt="..." class="img-circle" width="80%">
+		  			 			<img src="IMG/test.jpg" alt="..." class="img-circle" width="60%">
 		  			 		</div>
-			  			 	<div class="form-group">
-			  			 		<div class="col-sm-6">
-			  			 			<label>Surname : </label><br/>
-								</div>
-								<div class="col-sm-6">
-			  			 			<label>Firstname : </label><br/>
-								</div>
-			  			 		<div class="col-sm-6">
-			  			 			<label>Mail : </label><br/>
-								</div>
-								<div class="col-sm-6">
-			  			 			<label>Gender : </label><br/>
-								</div>
-								<div class="col-sm-6">
-			  			 			<label>Alternate: </label><br/>
-								</div>
-								<div class="col-sm-6">
-			  			 			<label>Firstname : </label>
-								</div>
-				  			</div>
+			  			 	<div class="col-md-8">
+				  			 	<div class="form-group">
+				  			 		<div>
+				  			 			<div class="form-group"><label style="width: 20%;">Surname</label><label> : <s:property value="select_user.nom"/></label></label></div>
+									</div>
+									<div>
+				  			 			<div class="form-group"><label style="width: 20%;">Firstname</label><label> : <s:property value="nom.nom"/></label></div>
+									</div>
+				  			 		<div>
+				  			 			<div class="form-group"><label style="width: 20%;">Mail</label><label> : <s:property value="nom.nom"/></label></div>
+									</div>
+									<div>
+				  			 			<div class="form-group"><label style="width: 20%;">Gender</label><label> : <s:property value="nom.nom"/></label></div>
+									</div>
+									<div>
+				  			 			<div class="form-group"><label style="width: 20%;">Alternate</label><label> : <s:property value="nom.nom"/></label></div>
+									</div>
+					  			</div>
+					  		</div>
 		  			 	</div>
 	  			 	</s:form>	
   			 	<h2>Changing Roles</h2>
