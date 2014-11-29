@@ -7,6 +7,63 @@
 	<s:include value="/JSP/layout/leftMenu.jsp" />
 	<div class="col-md-10 content">
 		<h2>Trombinoscope</h2>
+			<h4>Sorting method:</h4>
+				<div class="row">
+	  				<table>
+	  					<tr>
+	  						<td>
+	  							<div class="input-group">
+	      							<span class="input-group-addon">
+	        							<input type="radio" name="tri">
+	      							</span>
+	      								<input type="text" class="form-control" value="Surname A to Z" style="width:140px;">
+	    						</div><!-- /input-group -->
+	  						</td>
+	  						<td>
+	  							<div class="input-group">
+	      							<span class="input-group-addon">
+	        							<input type="radio" name="tri">
+	      							</span>
+	      								<input type="text" class="form-control" value="Surname Z to A" style="width:140px;">
+	    						</div><!-- /input-group -->
+	  						</td>
+	  						<td>
+	  							<div class="input-group">
+	      							<span class="input-group-addon">
+	        							<input type="radio" name="tri">
+	      							</span>
+	      								<input type="text" class="form-control" value="Male" style="width:140px;">
+	    						</div><!-- /input-group -->
+	  						</td>
+	  						<td>
+	  							<div class="input-group">
+	      							<span class="input-group-addon">
+	        							<input type="radio" name="tri">
+	      							</span>
+	      								<input type="text" class="form-control" value="Female" style="width:140px;">
+	    						</div><!-- /input-group -->
+	  						</td>
+	  						<td>
+	  							<div class="input-group">
+	      							<span class="input-group-addon">
+	        							<input type="radio" name="tri">
+	      							</span>
+	      								<input type="text" class="form-control" value="Alternate" style="width:140px;">
+	    						</div><!-- /input-group -->
+	  						</td>
+	  						<td>
+	  							<div class="input-group">
+	      							<span class="input-group-addon">
+	        							<input type="radio" name="tri">
+	      							</span>
+	      								<input type="text" class="form-control" value="No Alternate" style="width:140px;">
+	    						</div>
+	  						</td>
+	  					</tr>
+	  				</table>	    			
+				</div>
+			<br>
+	
 		<div class="row">
 			<s:iterator value="ListUtilisateur">
 			<s:url action="utilisateur_profil" var="Utilisateur"><s:param name="idUser"><s:property value="idUtilisateur"/></s:param></s:url>
