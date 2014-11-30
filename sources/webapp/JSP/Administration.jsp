@@ -20,37 +20,37 @@
 	  			 		<div class="form-group">
 		  			 		<label class="col-sm-2 control-label">Surname</label>
 		  			 		<div class="col-sm-6">
-		  			 			<s:textfield cssClass="form-control" id="nom" name="userAdd.nom" />
+		  			 			<s:textfield cssClass="form-control" id="nom" name="utilisateur.nom" />
 		  			 		</div>
 		  			 	</div>
 	  			 		<div class="form-group">
 		  			 		<label class="col-sm-2 control-label">Firstname</label>
 		  			 		<div class="col-sm-6">
-		  			 			<s:textfield cssClass="form-control" id="prenom" name="userAdd.prenom" />
+		  			 			<s:textfield cssClass="form-control" id="nom" name="utilisateur.prenom" />
 		  			 		</div>
 	  			 		</div>
 	  			 		<div class="form-group">
 					    	<label for="edit_form" class="col-sm-2 control-label">Mail</label>
 					    	<div class="col-sm-6">
-					      		<s:textfield cssClass="form-control" id="mail" name="userAdd.mail" />
+					      		<s:textfield cssClass="form-control" id="mail" name="utilisateur.mail" />
 					    	</div>
 			  			</div>
 			  			<div class="form-group">
 					    	<label for="edit_form" class="col-sm-2 control-label">Password</label>
 					    	<div class="col-sm-6">
-					      		<s:password cssClass="form-control" id="password" name="userAdd.password" />
+					      		<s:password cssClass="form-control" id="password" name="utilisateur.password" />
 					    	</div>
 			  			</div>
 			  			<div class="form-group">
 					    	<label for="edit_form" class="col-sm-2 control-label">Gender</label>
 					    	<div class="col-sm-6">
-					    		<s:radio cssClass="form-horizontal" cssStyle="font-weight: normal" name="userAdd.sexe" list="#{'1 ':' Male ','2 ':' Female'}" ></s:radio>
+					    		<s:radio cssClass="form-horizontal" cssStyle="font-weight: normal" name="utilisateur.sexe" list="#{'1 ':' Male ','2 ':' Female'}" ></s:radio>
 					    	</div>
 			  			</div>
 						<div class="form-group">
 					    	<label for="edit_form" class="col-sm-2 control-label">Alternate</label>
 					    	<div class="col-sm-6">
-					    		<s:radio cssClass="form-horizontal" cssStyle="font-weight: normal" name="userAdd.estAlternant" list="#{'1 ':' Yes ','2 ':' No'}"></s:radio>
+					    		<s:radio cssClass="form-horizontal" cssStyle="font-weight: normal" name="utilisateur.estAlternant" list="#{'1 ':' Yes ','2 ':' No'}"></s:radio>
 					    	</div>
 			  			</div>
 			  			<div class="form-group">
@@ -66,49 +66,41 @@
 				  		</div>
 	  			 	</s:form>
 			  	<h2>Edit user</h2>
-				  	<s:form theme="simple" cssClass="form-horizontal" role="form" action="administration_loadUserEdit" method="POST">
-	  			 		<div class="form-group">
-		  			 		<div class="col-sm-6">
-		  			 			<s:select cssClass="form-control" list="userList" id="select_user_edit" name="userEdit.nom" headerKey="-1" />
-		  			 		</div>
-		  			 		<div class="col-sm-2">
-		  			 			<s:submit cssClass="btn btn-default" value="Edit user" />
-		  			 		</div>
-		  			 	</div>
+				  	<s:form theme="simple" cssClass="form-horizontal" role="form" action="administration_editUser" method="POST">
 	  			 		<div class="form-group">
 		  			 		<label class="col-sm-2 control-label">Surname</label>
 		  			 		<div class="col-sm-6">
-		  			 			<s:textfield cssClass="form-control" id="nom" name="userEdit.nom" />
+		  			 			<s:textfield cssClass="form-control" id="nom" name="utilisateur.nom" />
 		  			 		</div>
 		  			 	</div>
 	  			 		<div class="form-group">
 		  			 		<label class="col-sm-2 control-label">Firstname</label>
 		  			 		<div class="col-sm-6">
-		  			 			<s:textfield cssClass="form-control" id="prenom" name="userEdit.prenom" />
+		  			 			<s:textfield cssClass="form-control" id="nom" name="utilisateur.prenom" />
 		  			 		</div>
 	  			 		</div>
 	  			 		<div class="form-group">
 					    	<label for="edit_form" class="col-sm-2 control-label">Mail</label>
 					    	<div class="col-sm-6">
-					      		<s:textfield cssClass="form-control" id="mail" name="userEdit.mail" />
+					      		<s:textfield cssClass="form-control" id="mail" name="utilisateur.mail" />
 					    	</div>
 			  			</div>
 			  			<div class="form-group">
 					    	<label for="edit_form" class="col-sm-2 control-label">Password</label>
 					    	<div class="col-sm-6">
-					      		<s:password cssClass="form-control" id="password" name="userEdit.password" />
+					      		<s:password cssClass="form-control" id="password" name="utilisateur.password" />
 					    	</div>
 			  			</div>
 			  			<div class="form-group">
 					    	<label for="edit_form" class="col-sm-2 control-label">Gender</label>
 					    	<div class="col-sm-6">
-					    		<s:radio cssClass="form-horizontal" cssStyle="font-weight: normal" name="userEdit.sexe" list="#{'1':'Male ','2':'Female'}" ></s:radio>
+					    		<s:radio cssClass="form-horizontal" cssStyle="font-weight: normal" name="utilisateur.sexe" list="#{'1':'Male ','2':'Female'}" ></s:radio>
 					    	</div>
 			  			</div>
 						<div class="form-group">
 					    	<label for="edit_form" class="col-sm-2 control-label">Alternate</label>
 					    	<div class="col-sm-6">
-					    		<s:radio cssClass="form-horizontal" cssStyle="font-weight: normal" name="userEdit.estAlternant" list="#{'1':'Yes ','2':'No'}"></s:radio>
+					    		<s:radio cssClass="form-horizontal" cssStyle="font-weight: normal" name="utilisateur.estAlternant" list="#{'1':'Yes ','2':'No'}"></s:radio>
 					    	</div>
 			  			</div>
 			  			<div class="form-group">
@@ -118,10 +110,10 @@
 				  		</div>
 	  			 	</s:form>
 			  	<h2>Remove user</h2>
-				  	<s:form theme="simple" cssClass="form-horizontal" role="form" action="administration_loadUserRemove" method="POST">
+				  	<s:form theme="simple" cssClass="form-horizontal" role="form" action="administration_loadUser" method="POST">
 	  			 		<div class="form-group">
 		  			 		<div class="col-sm-6">
-		  			 			<s:select cssClass="form-control" list="userList" id="select_user_remove" name="userRemove.nom" headerKey="-1" />
+		  			 			<s:select cssClass="form-control" list="userList" id="nom" name="utilisateur.nom" headerKey="-1" />
 		  			 		</div>
 		  			 		<div class="col-sm-2">
 		  			 			<s:submit cssClass="btn btn-default" value="Load" />
@@ -129,34 +121,35 @@
 		  			 	</div>
 		  			 	<div class="form-group">
 		  			 		<div class="col-sm-4">
-		  			 			<img src='<s:property value="utilisateur.chemin"/>' class="img-circle" width="60%">
+		  			 			<img src="IMG/test.jpg" alt="..." class="img-circle" width="80%">
 		  			 		</div>
-			  			 	<div class="col-md-8">
-				  			 	<div class="form-group">
-				  			 		<div>
-				  			 			<div class="form-group"><label style="width: 20%;">Surname</label><label> : <s:property value="userRemove.nom"/></label></div>
-									</div>
-									<div>
-				  			 			<div class="form-group"><label style="width: 20%;">Firstname</label><label> : <s:property value="userRemove.prenom"/></label></div>
-									</div>
-				  			 		<div>
-				  			 			<div class="form-group"><label style="width: 20%;">Mail</label><label> : <s:property value="userRemove.mail"/></label></div>
-									</div>
-									<div>
-				  			 			<div class="form-group"><label style="width: 20%;">Gender</label><label> : <s:property value="userRemove.sexe"/></label></div>
-									</div>
-									<div>
-				  			 			<div class="form-group"><label style="width: 20%;">Alternate</label><label> : <s:property value="userRemove.estAlternant"/></label></div>
-									</div>
-					  			</div>
-					  		</div>
+			  			 	<div class="form-group">
+			  			 		<div class="col-sm-6">
+			  			 			<label>Surname : </label><br/>
+								</div>
+								<div class="col-sm-6">
+			  			 			<label>Firstname : </label><br/>
+								</div>
+			  			 		<div class="col-sm-6">
+			  			 			<label>Mail : </label><br/>
+								</div>
+								<div class="col-sm-6">
+			  			 			<label>Gender : </label><br/>
+								</div>
+								<div class="col-sm-6">
+			  			 			<label>Alternate: </label><br/>
+								</div>
+								<div class="col-sm-6">
+			  			 			<label>Firstname : </label>
+								</div>
+				  			</div>
 		  			 	</div>
-	  			 	</s:form>
+	  			 	</s:form>	
   			 	<h2>Changing Roles</h2>
 				  	<s:form theme="simple" cssClass="form-horizontal" role="form" action="administration_changingRoles" method="POST">
 	  			 		<div class="form-group">
 		  			 		<div class="col-sm-6">
-		  			 			<s:select cssClass="form-control" list="userList" id="nom" name="userChangeDroit.idUtilisateur" headerKey="-1" />
+		  			 			<s:select cssClass="form-control" list="userList" id="nom" name="userList.utilisateur.idUtilisateur" headerKey="-1" />
 		  			 		</div>
 		  			 		<div class="col-sm-2">
 		  			 			<s:submit cssClass="btn btn-default" value="Change" />

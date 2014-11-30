@@ -45,9 +45,10 @@ public class UtilisateurDAO extends CoreDAO<Utilisateur> {
 		return user;
 	}
 	
-	@SuppressWarnings("unchecked")
 	public Utilisateur getUserName(String nom) {
-		Utilisateur user = (Utilisateur) session.createSQLQuery("SELECT nom,prenom,sexe,mail,estAlternant FROM utilisateur WHERE nom='"+nom+"'").uniqueResult();
+//		Utilisateur user = (Utilisateur) session.createSQLQuery("SELECT * FROM utilisateur WHERE nom='"+nom+"'").uniqueResult();
+		Utilisateur user = (Utilisateur) session.createCriteria(Utilisateur.class)
+				 .add( Restrictions.eq("nom", nom)).uniqueResult();
 		return user;
 	}
 	
