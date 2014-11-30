@@ -18,7 +18,10 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 	
 	public class AdministrationModel {
 		public List<Utilisateur> userList;
-		public Utilisateur utilisateur;
+		public Utilisateur userRemove;
+		public Utilisateur userAdd;
+		public Utilisateur userEdit;
+		public Utilisateur userChangeDroit;
 		public Medias media;
 		private File file;
 		@SuppressWarnings("unused")
@@ -44,13 +47,37 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 		public void setUserList(List<Utilisateur> userList) {
 			this.userList = userList;
 		}
-
-		public Utilisateur getUtilisateur() {
-			return utilisateur;
+		
+		public Utilisateur getUserRemove() {
+			return userRemove;
 		}
 
-		public void setUtilisateur(Utilisateur utilisateur) {
-			this.utilisateur = utilisateur;
+		public void setUserRemove(Utilisateur userRemove) {
+			this.userRemove = userRemove;
+		}
+
+		public Utilisateur getUserAdd() {
+			return userAdd;
+		}
+
+		public void setUserAdd(Utilisateur userAdd) {
+			this.userAdd = userAdd;
+		}
+
+		public Utilisateur getUserEdit() {
+			return userEdit;
+		}
+
+		public void setUserEdit(Utilisateur userEdit) {
+			this.userEdit = userEdit;
+		}
+
+		public Utilisateur getUserChangeDroit() {
+			return userChangeDroit;
+		}
+
+		public void setUserChangeDroit(Utilisateur userChangeDroit) {
+			this.userChangeDroit = userChangeDroit;
 		}
 
 		public Medias getMedia() {
@@ -69,25 +96,36 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 	public DroitDAO dDAO = new DroitDAO();
 	public DiversMethod dm = new DiversMethod();
 	
+	
 	public String execute(){
 		model.userList = uDAO.getAllUser();
 		return SUCCESS;
 	}
-
+	
 	public String addUser() throws Exception{
-		model.filename = model.utilisateur.nom + "_" + model.utilisateur.prenom + "_" + dm.date() + "_" + dm.random() + ".jpg";
+		model.filename = model.userAdd.nom + "_" + model.userAdd.prenom + "_" + dm.date() + "_" + dm.random() + ".jpg";
 		String classPath = AdministrationAction.class.getClassLoader().getResource(AdministrationAction.class.getName().replaceAll("\\.", "/" )+".class").getPath();
 		String[] tokens = classPath.split(".metadata");
 		model.destPath = tokens[0] + "Trombinoscope/sources/webapp/IMG/";
 		File destFile  = new File(model.destPath, model.filename);
     	FileUtils.copyFile(model.file, destFile);
-		model.utilisateur.setPassword(dm.crypt(model.utilisateur));
-		model.utilisateur.setDroit(dDAO.getDroitById(1));
-		model.utilisateur.setChemin("http://localhost:8080/trombi/IMG/" + model.filename);
+		model.userAdd.setPassword(dm.crypt(model.userAdd));
+		model.userAdd.setDroit(dDAO.getDroitById(1));
+		model.userAdd.setChemin("http://localhost:8080/trombi/IMG/" + model.filename);
 		model.userList = uDAO.getAllUser();
-		uDAO.saveOrUpdateUser(model.utilisateur);
+		uDAO.saveOrUpdateUser(model.userAdd);
 		media();
 		return SUCCESS;
+	}
+	
+	public String loadUserRemove(){
+		model.userRemove = uDAO.getUserName(model.userRemove.nom);
+		return execute();
+	}
+	
+	public String loadUserEdit(){
+		model.userEdit = uDAO.getUserName(model.userEdit.nom);
+		return execute();
 	}
 	
 	public void media() throws Exception{

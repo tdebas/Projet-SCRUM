@@ -46,6 +46,12 @@ public class UtilisateurDAO extends CoreDAO<Utilisateur> {
 	}
 	
 	@SuppressWarnings("unchecked")
+	public Utilisateur getUserName(String nom) {
+		Utilisateur user = (Utilisateur) session.createSQLQuery("SELECT nom,prenom,sexe,mail,estAlternant FROM utilisateur WHERE nom='"+nom+"'").uniqueResult();
+		return user;
+	}
+	
+	@SuppressWarnings("unchecked")
 	public List<Utilisateur> getAll(){
 		 List<Utilisateur> userList = session.createCriteria(Utilisateur.class).list();
 		 return userList;

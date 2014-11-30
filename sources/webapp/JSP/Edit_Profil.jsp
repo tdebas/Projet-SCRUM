@@ -64,8 +64,8 @@
 		<div class="col-md-3">
 			<s:if test="hasActionErrors()">
 				<div class="alert alert-danger" style="margin-top:90px;">
-					<p><span class="glyphicon glyphicon-exclamation-sign"> Error !</span></p><br/>
-					<p><s:actionerror cssStyle="list-style-type:none;" cssClass="actionerror"/></p>
+					<p><span class="glyphicon glyphicon-exclamation-sign"> Error !</span><p><br/>
+					<p><span><s:actionerror cssStyle="list-style-type:none;" cssClass="actionerror" /></p>
 				</div>
 			</s:if>
 		</div>
