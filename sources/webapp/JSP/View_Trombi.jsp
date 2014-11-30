@@ -16,7 +16,7 @@
 	      							<span class="input-group-addon">
 	        							<input type="radio" name="tri">
 	      							</span>
-	      								<input type="text" class="form-control" value="Surname A to Z" style="width:140px;">
+	      								<input type="text" class="form-control" placeholder="Surname A to Z" style="width:140px;">
 	    						</div><!-- /input-group -->
 	  						</td>
 	  						<td>
@@ -24,7 +24,7 @@
 	      							<span class="input-group-addon">
 	        							<input type="radio" name="tri">
 	      							</span>
-	      								<input type="text" class="form-control" value="Surname Z to A" style="width:140px;">
+	      								<input type="text" class="form-control" placeholder="Surname Z to A" style="width:140px;">
 	    						</div><!-- /input-group -->
 	  						</td>
 	  						<td>
@@ -32,7 +32,7 @@
 	      							<span class="input-group-addon">
 	        							<input type="radio" name="tri">
 	      							</span>
-	      								<input type="text" class="form-control" value="Male" style="width:140px;">
+	      								<input type="text" class="form-control" placeholder="Male" style="width:140px;">
 	    						</div><!-- /input-group -->
 	  						</td>
 	  						<td>
@@ -40,7 +40,7 @@
 	      							<span class="input-group-addon">
 	        							<input type="radio" name="tri">
 	      							</span>
-	      								<input type="text" class="form-control" value="Female" style="width:140px;">
+	      								<input type="text" class="form-control" placeholder="Female" style="width:140px;">
 	    						</div><!-- /input-group -->
 	  						</td>
 	  						<td>
@@ -48,7 +48,7 @@
 	      							<span class="input-group-addon">
 	        							<input type="radio" name="tri">
 	      							</span>
-	      								<input type="text" class="form-control" value="Alternate" style="width:140px;">
+	      								<input type="text" class="form-control" placeholder="Alternate" style="width:140px;">
 	    						</div><!-- /input-group -->
 	  						</td>
 	  						<td>
@@ -56,7 +56,7 @@
 	      							<span class="input-group-addon">
 	        							<input type="radio" name="tri">
 	      							</span>
-	      								<input type="text" class="form-control" value="No Alternate" style="width:140px;">
+	      								<input type="text" class="form-control" placeholder="No Alternate" style="width:140px;">
 	    						</div>
 	  						</td>
 	  					</tr>
