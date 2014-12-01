@@ -16,7 +16,7 @@
 	      							<span class="input-group-addon">
 	        							<input type="radio" name="tri">
 	      							</span>
-	      								<input type="text" class="form-control" placeholder="Surname A to Z" style="width:140px;">
+	      								<input type="text" class="form-control" placeholder="A to Z">
 	    						</div><!-- /input-group -->
 	  						</td>
 	  						<td>
@@ -24,7 +24,7 @@
 	      							<span class="input-group-addon">
 	        							<input type="radio" name="tri">
 	      							</span>
-	      								<input type="text" class="form-control" placeholder="Surname Z to A" style="width:140px;">
+	      								<input type="text" class="form-control" placeholder="Z to A">
 	    						</div><!-- /input-group -->
 	  						</td>
 	  						<td>
@@ -32,7 +32,7 @@
 	      							<span class="input-group-addon">
 	        							<input type="radio" name="tri">
 	      							</span>
-	      								<input type="text" class="form-control" placeholder="Male" style="width:140px;">
+	      								<input type="text" class="form-control" placeholder="Male">
 	    						</div><!-- /input-group -->
 	  						</td>
 	  						<td>
@@ -40,7 +40,7 @@
 	      							<span class="input-group-addon">
 	        							<input type="radio" name="tri">
 	      							</span>
-	      								<input type="text" class="form-control" placeholder="Female" style="width:140px;">
+	      								<input type="text" class="form-control" placeholder="Female">
 	    						</div><!-- /input-group -->
 	  						</td>
 	  						<td>
@@ -48,7 +48,7 @@
 	      							<span class="input-group-addon">
 	        							<input type="radio" name="tri">
 	      							</span>
-	      								<input type="text" class="form-control" placeholder="Alternate" style="width:140px;">
+	      								<input type="text" class="form-control" placeholder="Alternate">
 	    						</div><!-- /input-group -->
 	  						</td>
 	  						<td>
@@ -56,7 +56,15 @@
 	      							<span class="input-group-addon">
 	        							<input type="radio" name="tri">
 	      							</span>
-	      								<input type="text" class="form-control" placeholder="No Alternate" style="width:140px;">
+	      								<input type="text" class="form-control" placeholder="No Alternate">
+	    						</div>
+	  						</td>
+	  						<td>
+	  							<div class="input-group">
+	      							<span class="input-group-addon">
+	        							<input type="radio" name="tri">
+	      							</span>
+	      								<input type="text" class="form-control" placeholder="Note">
 	    						</div>
 	  						</td>
 	  					</tr>
