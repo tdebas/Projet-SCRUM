@@ -117,7 +117,16 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 		media();
 		return SUCCESS;
 	}
-	
+
+	public String updateUser() throws Exception{
+		model.userEdit.setNom(model.userEdit.nom);
+		model.userEdit.setPrenom(model.userEdit.prenom);
+		model.userEdit.setMail(model.userEdit.password);
+		model.userEdit.setSexe(model.userEdit.sexe);
+		model.userEdit.setEstAlternant(model.userEdit.estAlternant);
+		uDAO.saveOrUpdateUser(model.userEdit);
+		return SUCCESS;
+	}
 	public String loadUserRemove(){
 		model.userRemove = uDAO.getUserName(model.userRemove.nom);
 		return execute();
@@ -128,12 +137,18 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 		return execute();
 	}
 	
+	public String RemoveUser(){
+		uDAO.delete(model.userRemove);
+		return execute();
+	}
+	
 	public void media() throws Exception{
 		Integer i = uDAO.getMax();
 		Utilisateur utilisateur = uDAO.getUserById(i);
 		model.media = new Medias(utilisateur.getChemin(), utilisateur);
 		mDAO.saveOrUpdateMedia(model.media);
 	}
+	
 	public AdministrationModel getModel() {
 		return model;
 	}
