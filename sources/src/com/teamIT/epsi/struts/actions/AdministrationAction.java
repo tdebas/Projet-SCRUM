@@ -29,11 +29,7 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 	    private String filename;
 	    private String destPath;
 	   
-	    private String username;
-	    public void setUsername(String username) {
-	        this.username = username;
-	    }
-	    
+	   
 	    public void setUpload(File file) {
 	        this.file = file;
 	    }
@@ -101,6 +97,15 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 	public DroitDAO dDAO = new DroitDAO();
 	public DiversMethod dm = new DiversMethod();
 	
+	private String username;
+	private String name;
+	
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
 	
 	public String execute(){
 		model.userList = uDAO.getAllUser();
@@ -124,22 +129,21 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 	}
 
 	public String updateUser() throws Exception{
-		model.userEdit.setNom(model.userEdit.nom);
-		model.userEdit.setPrenom(model.userEdit.prenom);
-		model.userEdit.setMail(model.userEdit.password);
-		model.userEdit.setSexe(model.userEdit.sexe);
-		model.userEdit.setEstAlternant(model.userEdit.estAlternant);
+		model.userEdit.setPassword(dm.crypt(model.userEdit));
+		model.userEdit.setDroit(dDAO.getDroitById(1));
+		model.userEdit.setChemin("http://localhost:8080/trombi/IMG/" + model.filename);
 		uDAO.saveOrUpdateUser(model.userEdit);
-		return SUCCESS;
+		return execute();
 	}
+	
 	public String loadUserRemove(){
 		model.userRemove = uDAO.getUserName(model.userRemove.nom);
 		return execute();
 	}
 	
 	public String loadUserEdit(){
-		model.userEdit = uDAO.getUserName(model.userEdit.nom);
-		return SUCCESS;
+		model.userEdit = uDAO.getUserName(username);
+		return execute();
 	}
 	
 	public String RemoveUser(){

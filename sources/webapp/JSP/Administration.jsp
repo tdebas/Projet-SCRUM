@@ -6,13 +6,12 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
 
-  <script>
-  $(function() {
-    $( "#accordion" ).accordion();
-  });
-  </script>
+<script>
+	$(function() {
+	  $( "#accordion" ).accordion();
+	});
+</script>
 
 <s:if test="userEstConnecte & estAdmin">
 	<div class="row">
@@ -25,25 +24,25 @@
 	  			 		<div class="form-group">
 		  			 		<label class="col-sm-2 control-label">Surname</label>
 		  			 		<div class="col-sm-6">
-		  			 			<s:textfield cssClass="form-control" id="nom" name="userAdd.nom" />
+		  			 			<s:textfield cssClass="form-control" id="addNom" name="userAdd.nom" />
 		  			 		</div>
 		  			 	</div>
 	  			 		<div class="form-group">
 		  			 		<label class="col-sm-2 control-label">Firstname</label>
 		  			 		<div class="col-sm-6">
-		  			 			<s:textfield cssClass="form-control" id="prenom" name="userAdd.prenom" />
+		  			 			<s:textfield cssClass="form-control" id="addPrenom" name="userAdd.prenom" />
 		  			 		</div>
 	  			 		</div>
 	  			 		<div class="form-group">
 					    	<label for="edit_form" class="col-sm-2 control-label">Mail</label>
 					    	<div class="col-sm-6">
-					      		<s:textfield cssClass="form-control" id="mail" name="userAdd.mail" />
+					      		<s:textfield cssClass="form-control" id="addMail" name="userAdd.mail" />
 					    	</div>
 			  			</div>
 			  			<div class="form-group">
 					    	<label for="edit_form" class="col-sm-2 control-label">Password</label>
 					    	<div class="col-sm-6">
-					      		<s:password cssClass="form-control" id="password" name="userAdd.password" />
+					      		<s:password cssClass="form-control" id="addPassword" name="userAdd.password" />
 					    	</div>
 			  			</div>
 			  			<div class="form-group">
@@ -83,25 +82,25 @@
 	  			 		<div class="form-group">
 		  			 		<label class="col-sm-2 control-label">Surname</label>
 		  			 		<div class="col-sm-6">
-		  			 			<s:textfield cssClass="form-control" id="nom" name="userList.nom" />
+		  			 			<s:textfield cssClass="form-control" id="editNom"/>
 		  			 		</div>
 		  			 	</div>
 	  			 		<div class="form-group">
 		  			 		<label class="col-sm-2 control-label">Firstname</label>
 		  			 		<div class="col-sm-6">
-		  			 			<s:textfield cssClass="form-control" id="prenom" name="userEdit.prenom" />
+		  			 			<s:textfield cssClass="form-control" id="editPrenom" name="userEdit.prenom" />
 		  			 		</div>
 	  			 		</div>
 	  			 		<div class="form-group">
 					    	<label for="edit_form" class="col-sm-2 control-label">Mail</label>
 					    	<div class="col-sm-6">
-					      		<s:textfield cssClass="form-control" id="mail" name="userEdit.mail" />
+					      		<s:textfield cssClass="form-control" id="editMail" name="userEdit.mail" />
 					    	</div>
 			  			</div>
 			  			<div class="form-group">
 					    	<label for="edit_form" class="col-sm-2 control-label">Password</label>
 					    	<div class="col-sm-6">
-					      		<s:password cssClass="form-control" id="password" name="userEdit.password" />
+					      		<s:password cssClass="form-control" id="editPassword" name="userEdit.password" />
 					    	</div>
 			  			</div>
 			  			<div class="form-group">
@@ -189,26 +188,23 @@
 <s:include value="/JSP/layout/footer.jsp" />
 
 <SCRIPT>
-	/** Appel la fonction d'import lorsque l'on clique sur le bouton
-	* d'import du formulaire.
-	*/
 	function importDataUser()
 	{
-		//$("#datamodel-import").on("click", function(event){
-			// définition des paramètres à envoyer
-			var data = {};
-			data.username = $("#select_user_edit").val();
-			
-			// envoie de la requête
-			$.ajax({
-				url: "<s:url action='administration_loadUserEdit'/>",
-				data: data,
-				type: "POST",
-				success: function(){
-					alert("ok");
-					// c'est là où il faut remplir le formulaire s'il struts ne l'a pas fait
-				}
-			});
-		//}//);
+		var data = {};
+		data.username = $("#select_user_edit").val();
+		data.name = $("#model.userEdit.nom").val();
+		
+		// envoie de la requête
+		$.ajax({
+			url: "<s:url action='administration_loadUserEdit'/>",
+			data: data,
+			type: "POST",
+			success: function(){
+				alert(data.username);
+				alert(data.name);
+				$("#editNom").val(data.username);
+				$("#editPrenom").val(data.name);
+			}
+		});
 	 }
 </SCRIPT>
