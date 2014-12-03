@@ -8,68 +8,45 @@
 	<div class="col-md-10 content">
 		<h2>Trombinoscope</h2>
 			<h4>Sorting method:</h4>
+			<s:form theme="simple" cssClass="form-horizontal" name="trier" action="trombinoscope_tri" method="POST">
 				<div class="row">
-	  				<table>
-	  					<tr>
-	  						<td>
-	  							<div class="input-group">
-	      							<span class="input-group-addon">
-	        							<input type="radio" name="tri">
-	      							</span>
-	      								<input type="text" class="form-control" placeholder="A to Z">
-	    						</div><!-- /input-group -->
-	  						</td>
-	  						<td>
-	  							<div class="input-group">
-	      							<span class="input-group-addon">
-	        							<input type="radio" name="tri">
-	      							</span>
-	      								<input type="text" class="form-control" placeholder="Z to A">
-	    						</div><!-- /input-group -->
-	  						</td>
-	  						<td>
-	  							<div class="input-group">
-	      							<span class="input-group-addon">
-	        							<input type="radio" name="tri">
-	      							</span>
-	      								<input type="text" class="form-control" placeholder="Male">
-	    						</div><!-- /input-group -->
-	  						</td>
-	  						<td>
-	  							<div class="input-group">
-	      							<span class="input-group-addon">
-	        							<input type="radio" name="tri">
-	      							</span>
-	      								<input type="text" class="form-control" placeholder="Female">
-	    						</div><!-- /input-group -->
-	  						</td>
-	  						<td>
-	  							<div class="input-group">
-	      							<span class="input-group-addon">
-	        							<input type="radio" name="tri">
-	      							</span>
-	      								<input type="text" class="form-control" placeholder="Alternate">
-	    						</div><!-- /input-group -->
-	  						</td>
-	  						<td>
-	  							<div class="input-group">
-	      							<span class="input-group-addon">
-	        							<input type="radio" name="tri">
-	      							</span>
-	      								<input type="text" class="form-control" placeholder="No Alternate">
-	    						</div>
-	  						</td>
-	  						<td>
-	  							<div class="input-group">
-	      							<span class="input-group-addon">
-	        							<input type="radio" name="tri">
-	      							</span>
-	      								<input type="text" class="form-control" placeholder="Note">
-	    						</div>
-	  						</td>
-	  					</tr>
-	  				</table>	    			
+					<div class="col-md-11">
+						<div class="input-group">
+							<span class="input-group-addon">
+	 							<input type="radio" name="tri" value="1">
+							</span>
+								<label class="form-control" >A to Z</label>
+							<span class="input-group-addon">
+	 							<input type="radio" name="tri" value="2">
+							</span>
+								<label class="form-control" >Z to A</label>
+							<span class="input-group-addon">
+	 							<input type="radio" name="tri" value="3">
+							</span>
+								<label class="form-control" >Male</label>
+							<span class="input-group-addon">
+	 							<input type="radio" name="tri" value="4">
+							</span>
+								<label class="form-control" >Female</label>
+							<span class="input-group-addon">
+	 							<input type="radio" name="tri" value="5">
+							</span>
+								<label class="form-control" >Alternate</label>
+							<span class="input-group-addon">
+	 							<input type="radio" name="tri" value="6">
+							</span>
+								<label class="form-control" >No alternate</label>
+							<span class="input-group-addon">
+	 							<input type="radio" name="tri" value="7">
+							</span>
+								<label class="form-control" >Note</label>
+						</div> 
+					</div>
+					<div class="col-md-1">
+						<a href="#" onclick="document.forms['trier'].submit();" class="btn btn-success"><span class="glyphicon glyphicon-search"></span></a>
+					</div>
 				</div>
+				</s:form>  		
 			<br>
 	
 		<div class="row">

@@ -2,6 +2,7 @@ package com.teamIT.epsi.hibernate.dao;
 
 import java.util.List;
 
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import com.teamIT.epsi.hibernate.tables.Utilisateur;
@@ -46,7 +47,6 @@ public class UtilisateurDAO extends CoreDAO<Utilisateur> {
 	}
 	
 	public Utilisateur getUserName(String nom) {
-//		Utilisateur user = (Utilisateur) session.createSQLQuery("SELECT * FROM utilisateur WHERE nom='"+nom+"'").uniqueResult();
 		Utilisateur user = (Utilisateur) session.createCriteria(Utilisateur.class)
 				 .add( Restrictions.eq("nom", nom)).uniqueResult();
 		return user;
@@ -56,6 +56,29 @@ public class UtilisateurDAO extends CoreDAO<Utilisateur> {
 	public List<Utilisateur> getAll(){
 		 List<Utilisateur> userList = session.createCriteria(Utilisateur.class).list();
 		 return userList;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Utilisateur> getAllByOrder(int tri){
+		List<Utilisateur> userList = null;
+		if(tri == 1){
+			userList = session.createCriteria(Utilisateur.class).addOrder(Order.asc("nom")).list();
+		}else if (tri == 2){
+			userList = session.createCriteria(Utilisateur.class).addOrder(Order.desc("nom")).list();
+		}else if (tri == 3){
+			userList = session.createCriteria(Utilisateur.class).add(Restrictions.eq("sexe", "1")).addOrder(Order.asc("nom")).addOrder(Order.asc("prenom")).list();
+		}else if (tri == 4){
+			userList = session.createCriteria(Utilisateur.class).add(Restrictions.eq("sexe", "2")).addOrder(Order.asc("nom")).addOrder(Order.asc("prenom")).list();
+		}else if (tri == 5){
+			userList = session.createCriteria(Utilisateur.class).add(Restrictions.eq("estAlternant", "1")).addOrder(Order.asc("nom")).addOrder(Order.asc("prenom")).list();
+		}else if (tri == 6){
+			userList = session.createCriteria(Utilisateur.class).add(Restrictions.eq("estAlternant", "2")).addOrder(Order.asc("nom")).addOrder(Order.asc("prenom")).list();
+		}else if (tri == 7){
+			userList = session.createCriteria(Utilisateur.class).addOrder(Order.desc("note")).addOrder(Order.asc("nom")).addOrder(Order.asc("prenom")).list();
+		}else{
+			userList = session.createCriteria(Utilisateur.class).list();
+		}
+		return userList;
 	}
 	
 	public Integer getMax(){
