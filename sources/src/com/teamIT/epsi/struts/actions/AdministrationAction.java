@@ -28,14 +28,19 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 		private String contentType;
 	    private String filename;
 	    private String destPath;
-
-	     public void setUpload(File file) {
+	   
+	    private String username;
+	    public void setUsername(String username) {
+	        this.username = username;
+	    }
+	    
+	    public void setUpload(File file) {
 	        this.file = file;
-	     }
+	    }
 
-	     public void setUploadContentType(String contentType) {
+	    public void setUploadContentType(String contentType) {
 	        this.contentType = contentType;
-	     }
+	    }
 
 	     public void setUploadFileName(String filename) {
 	        this.filename = filename;
@@ -134,7 +139,7 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 	
 	public String loadUserEdit(){
 		model.userEdit = uDAO.getUserName(model.userEdit.nom);
-		return execute();
+		return SUCCESS;
 	}
 	
 	public String RemoveUser(){
