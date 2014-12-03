@@ -24,7 +24,6 @@ public class ConnexionAction extends BaseAction implements ModelDriven<Connexion
 	public UtilisateurDAO uDAO = new UtilisateurDAO();
 		
 	public String execute() {
-		addActionMessage("You are now authentificated !!");
 		return SUCCESS;
 	}
 	

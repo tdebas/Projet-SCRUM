@@ -1,24 +1,16 @@
-body { margin: 0px 0px 70px 0px; }
+body { margin: 0px 0px 70px 0px; background-color : #ffe; }
 
 .connexion{ margin : auto; width : 70%; }
 
 .content{ padding-left:50px; }
 
-.footer{ bottom:0; position : fixed; color : #777; border-top :  solid 1px #e7e7e7; padding-top: 12px; text-align: center; text-shadow : 1px 1px 3px #aaa; width:100%; height:50px; 
-background-image: -webkit-linear-gradient(top, #f8f8f8 0%, #fff 100%); 
-background-image: linear-gradient(to bottom, #f8f8f8 0%, #fff 100%); 
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff8f8f8', endColorstr='#ffffffff', GradientType=0); 
-background-repeat: repeat-x; border-radius: 4px; 
-
--webkit-box-shadow: inset 0 -5px 0 rgba(255, 255, 255, .15), 0 -5px 5px rgba(0, 0, 0, .075); 
-box-shadow: inset 0 -5px 0 rgba(255, 255, 255, .15), 0 -5px 5px rgba(0, 0, 0, .075);
-}
+.footer{ background-color : #222; bottom:0; position : fixed; color : #999; border-top :  solid 1px #000; padding-top: 12px; text-align: center; text-shadow : 1px 1px 3px #000; width:100%; height:50px; }
 
 .footer a{ color : #777; }
 
 .footer:hover a{ text-decoration: none; cursor: default; }
 
-.userOnline{ text-align : center; color : #fff ; margin-bottom : 15px; font-size: 15px; text-shadow : 1px 1px 1px #428bca; letter-spacing: 0.1em; background-color : #428bca; border-radius : 15px; padding : 10px 0px 10px 0px ;}
+.userOnline{ text-align : center; color : #fff ; margin-bottom : 15px; font-size: 15px; text-shadow : 1px 1px 1px #428bca; letter-spacing: 0.1em; background-color : #428bca; border-radius : 5px; padding : 10px 0px 10px 0px ;}
 
 h5{ text-align : right;	font-size: 16px; color : #fff; text-shadow : 1px 1px 1px #4350CA; padding : 5px 0px 5px 0px; letter-spacing: 0.15em; }
 
