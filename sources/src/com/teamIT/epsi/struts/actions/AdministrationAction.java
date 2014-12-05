@@ -161,6 +161,7 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 	public AdministrationModel getModel() {
 		return model;
 	}
+	
 	public void setModel(AdministrationModel model) {
 		this.model = model;
 	}

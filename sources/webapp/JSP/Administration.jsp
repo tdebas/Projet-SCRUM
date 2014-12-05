@@ -192,7 +192,6 @@
 	{
 		var data = {};
 		data.username = $("#select_user_edit").val();
-		data.name = $("#model.userEdit.nom").val();
 		
 		// envoie de la requête
 		$.ajax({
@@ -200,10 +199,8 @@
 			data: data,
 			type: "POST",
 			success: function(){
-				alert(data.username);
-				alert(data.name);
 				$("#editNom").val(data.username);
-				$("#editPrenom").val(data.name);
+				$("#editPrenom").val()
 			}
 		});
 	 }
