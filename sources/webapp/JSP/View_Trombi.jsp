@@ -1,12 +1,27 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-
 <s:include value="/JSP/layout/header.jsp" />
-
+<script type="text/javascript">
+  $(document).ready(function(){
+	$(".basic").jRating({
+		length:10,
+		decimalLength:0,
+	    onClick : function(element,rate) {
+         $.ajax({
+           type: "POST",
+           url: "/trombi/trombinoscope_vote",
+           data: {rate:rate, id: $(element).attr("data-id")},
+           success: function(){
+           }
+         });
+	    }
+       });
+  });
+</script>
 <s:if test="userEstConnecte">
 	<s:include value="/JSP/layout/leftMenu.jsp" />
 	<div class="col-md-10 content">
-		<h2>Trombinoscope</h2>
+		<h2>Trombinoscope</h2>  		
 			<h4>Sorting method:</h4>
 			<s:form theme="simple" cssClass="form-horizontal" name="trier" action="trombinoscope_tri" method="POST">
 				<div class="row">
@@ -48,7 +63,6 @@
 				</div>
 				</s:form>  		
 			<br>
-	
 		<div class="row">
 			<s:iterator value="ListUtilisateur">
 			<s:url action="utilisateur_profil" var="Utilisateur"><s:param name="idUser"><s:property value="idUtilisateur"/></s:param></s:url>
@@ -57,6 +71,7 @@
 			      <img src='<s:property value="chemin"/>' class="img-rounded">
 			      <div class="caption">
 			        <h4><s:property value="nom"/> <s:property value="prenom"/></h4>
+			        <div class="basic" data-average=<s:property value="note"/> data-id=<s:property value="idUtilisateur"/>></div>
 			        <s:if test="sexe == 1">
 			        	<p><a href="${Utilisateur}" class="btn btn-primary">See profil</a></p>
 			        </s:if>
@@ -68,6 +83,7 @@
 			  </div>
 			</s:iterator>
 		</div>
+		
 	</div>
 </s:if>
 <s:else>

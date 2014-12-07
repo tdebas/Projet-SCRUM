@@ -1,0 +1,1 @@
+Alter table utilisateur ADD nbVote int Not null Default 0;

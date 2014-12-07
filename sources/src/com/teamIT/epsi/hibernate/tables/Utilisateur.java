@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Table(name = "utilisateur")
 public class Utilisateur {
 
-	public int idUtilisateur, note;
+	public int idUtilisateur, note,nbVote;
 	public String nom, prenom, mail, password, sexe, estAlternant, chemin;
 	public Droit droit;
 	
@@ -23,7 +23,7 @@ public class Utilisateur {
 	/* Constructor */
 	public Utilisateur(int idUtilisateur, int note, String nom, String prenom,
 			String mail, String password, String sexe, String estAlternant,
-			String chemin, Droit droit) {
+			String chemin, Droit droit, int nbVote) {
 		super();
 		this.idUtilisateur = idUtilisateur;
 		this.note = note;
@@ -35,6 +35,7 @@ public class Utilisateur {
 		this.estAlternant = estAlternant;
 		this.chemin = chemin;
 		this.droit = droit;
+		this.nbVote = nbVote;
 	}
 	
 	/* Getters & Setters */
@@ -57,6 +58,15 @@ public class Utilisateur {
 
 	public void setNote(int note) {
 		this.note = note;
+	}
+	
+	@Column(name = "nbVote", nullable = false)
+	public int getNbVote() {
+		return nbVote;
+	}
+
+	public void setNbVote(int nbVote) {
+		this.nbVote = nbVote;
 	}
 
 	@Column(name = "nom", nullable = false)
