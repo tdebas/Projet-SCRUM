@@ -4,7 +4,7 @@
 <script type="text/javascript">
   $(document).ready(function(){
 	$(".basic").jRating({
-		length:10,
+		length:5,
 		decimalLength:0,
 	    onClick : function(element,rate) {
          $.ajax({
@@ -71,7 +71,7 @@
 			      <img src='<s:property value="chemin"/>' class="img-rounded">
 			      <div class="caption">
 			        <h4><s:property value="nom"/> <s:property value="prenom"/></h4>
-			        <div class="basic" data-average=<s:property value="note"/> data-id=<s:property value="idUtilisateur"/>></div>
+			       	<div class="basic" data-average=<s:property value="note"/> data-id=<s:property value="idUtilisateur"/>></div>
 			        <s:if test="sexe == 1">
 			        	<p><a href="${Utilisateur}" class="btn btn-primary">See profil</a></p>
 			        </s:if>
