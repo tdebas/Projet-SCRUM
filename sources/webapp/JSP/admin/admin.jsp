@@ -72,7 +72,8 @@
 				</div>
 			</div>
 		</div>
-			<s:actionmessage cssStyle="list-style-type:none;"/>
+			<br/><br/>
+			<s:actionmessage cssStyle="list-style-type:none;font-size:18px;color:#428bca;"/>
 		</div>
 </div>
 </s:if>

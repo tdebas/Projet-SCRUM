@@ -44,7 +44,6 @@ public class ConnexionAction extends BaseAction implements ModelDriven<Connexion
 			/* MJ : add user in session */
 			sessionMap.put("utilisateur", model.utilisateur);
 			uDAO.get(model.getUtilisateur());
-			addActionMessage("You are now authentificated !");
 			return SUCCESS;
 		} else {
 			addActionError("Error Authentification !");

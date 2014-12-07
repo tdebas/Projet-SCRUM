@@ -2,7 +2,21 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 	
 <s:include value="/JSP/layout/header.jsp" />
-
+<script type="text/javascript">
+  $(document).ready(function(){
+	
+	  function loadingUser(){
+         $.ajax({
+           type: "POST",
+           url: "/trombi/administration_loadUserRemove",
+           data: {nom: $("#select_user_remove").val()},
+           success: function(){
+           }
+         });
+	  }
+ 
+  });
+</script>
 <s:if test="userEstConnecte & estAdmin">
 	<div class="row">
 		<s:include value="/JSP/layout/leftMenu.jsp" />

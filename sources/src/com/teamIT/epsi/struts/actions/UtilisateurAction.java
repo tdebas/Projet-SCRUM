@@ -135,6 +135,7 @@ public class UtilisateurAction extends BaseAction implements ModelDriven<Utilisa
 		model.utilisateur.setPassword(dm.crypt(model.utilisateur));
 		model.utilisateur.setDroit(((Utilisateur) sessionMap.get("utilisateur")).getDroit());
 		model.utilisateur.setNote(((Utilisateur) sessionMap.get("utilisateur")).getNote());
+		model.utilisateur.setNbVote(((Utilisateur) sessionMap.get("utilisateur")).getNbVote());
 		if(model.file == null){
 			model.utilisateur.setChemin(((Utilisateur) sessionMap.get("utilisateur")).getChemin());
 		}else{

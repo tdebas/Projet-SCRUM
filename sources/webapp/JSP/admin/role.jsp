@@ -12,7 +12,7 @@
 				  	<s:form theme="simple" cssClass="form-horizontal" role="form" action="administration_changingRoles" method="POST">
 	  			 		<div class="form-group">
 		  			 		<div class="col-sm-6">
-		  			 			<s:select cssClass="form-control" list="userList" id="nom" name="userChangeDroit.idUtilisateur" headerKey="-1" />
+		  			 			<s:select cssClass="form-control" list="userList" name="utilisateur.nom" headerKey="-1" />
 		  			 		</div>
 		  			 		<div class="col-sm-2">
 		  			 			<s:submit cssClass="btn btn-default" value="Change" />
@@ -21,7 +21,7 @@
 			  			<div class="form-group">
 				    		<div class="col-sm-6">
 			      				<div class="checkbox">
-									<label><s:radio id="radio" name="radio_droit" list="#{'1 ':' Etudiant ','2 ':' Administrateur' , '3 ' : ' Super-Administrateur'}"></s:radio></label>
+									<label><s:radio cssClass="form-horizontal" cssStyle="font-weight:normal" name="role" list="#{'1 ':' Etudiant ','2 ':' Administrateur'}" value="%{utilisateur.droit}"></s:radio></label>
 								</div>
 				    		</div>
 				  		</div>

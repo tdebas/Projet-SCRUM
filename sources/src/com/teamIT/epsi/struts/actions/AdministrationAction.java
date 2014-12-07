@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import com.teamIT.epsi.hibernate.dao.DroitDAO;
 import com.teamIT.epsi.hibernate.dao.MediasDAO;
 import com.teamIT.epsi.hibernate.dao.UtilisateurDAO;
+import com.teamIT.epsi.hibernate.tables.Droit;
 import com.teamIT.epsi.hibernate.tables.Medias;
 import com.teamIT.epsi.hibernate.tables.Utilisateur;
 import com.teamIT.epsi.struts.method.DiversMethod;
@@ -20,6 +21,7 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 		public List<Utilisateur> userList;
 		public List<Medias> mediaList;
 		public Utilisateur utilisateur;
+		public Droit droit;
 		public Medias media;
 		private File file;
 		@SuppressWarnings("unused")
@@ -28,6 +30,7 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 	    private String destPath;
 	    public String sexe;
 	    public String alternant;
+	    public int role;
 	   
 	    public void setUpload(File file) {
 	        this.file = file;
@@ -40,6 +43,15 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 	     public void setUploadFileName(String filename) {
 	        this.filename = filename;
 	     }
+	     
+		public Droit getDroit() {
+			return droit;
+		}
+
+		public void setDroit(Droit droit) {
+			this.droit = droit;
+		}
+
 		public List<Utilisateur> getUserList() {
 			return userList;
 		}
@@ -87,6 +99,14 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 		public void setMediaList(List<Medias> mediaList) {
 			this.mediaList = mediaList;
 		}
+
+		public int getRole() {
+			return role;
+		}
+
+		public void setRole(int role) {
+			this.role = role;
+		}
 		
 	}
 	
@@ -114,7 +134,7 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 	}
 	
 	public String executeRole(){
-		model.userList = uDAO.getAllUser();
+		model.userList = uDAO.getAllUserExceptSuperAdmin();
 		return "role";
 	}
 	
@@ -163,6 +183,7 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 		model.utilisateur.setPassword(dm.crypt(model.utilisateur));
 		model.utilisateur.setDroit(dDAO.getDroitById(1));
 		model.utilisateur.setNote(0);
+		model.utilisateur.setNbVote(0);
 		
 		model.userList = uDAO.getAllUser();
 		
@@ -240,6 +261,15 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 		
 		addActionMessage("Vous venez de supprimer l'utilisateur " + model.utilisateur.nom + " " + model.utilisateur.prenom +".");
 		
+		return SUCCESS;
+	}
+
+	public String changingRoles(){
+		model.utilisateur = uDAO.getUserName(model.utilisateur.nom);
+		model.droit = dDAO.getDroitById(model.role);
+		model.utilisateur.setDroit(model.droit);
+		uDAO.saveOrUpdate(model.utilisateur);
+		addActionMessage("Vous venez de modifier les droits de l'utilisateur " + model.utilisateur.nom + " " + model.utilisateur.prenom +".");
 		return SUCCESS;
 	}
 	

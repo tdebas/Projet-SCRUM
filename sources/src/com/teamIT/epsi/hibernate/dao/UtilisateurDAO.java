@@ -46,6 +46,12 @@ public class UtilisateurDAO extends CoreDAO<Utilisateur> {
 		return user;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Utilisateur> getAllUserExceptSuperAdmin() {
+		List<Utilisateur> user = (List<Utilisateur>) session.createSQLQuery("SELECT nom FROM utilisateur WHERE idDroit != 3").list();
+		return user;
+	}
+	
 	public Utilisateur getUserName(String nom) {
 		Utilisateur user = (Utilisateur) session.createCriteria(Utilisateur.class)
 				 .add( Restrictions.eq("nom", nom)).uniqueResult();
