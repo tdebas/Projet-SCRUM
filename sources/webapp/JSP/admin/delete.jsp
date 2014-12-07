@@ -1,0 +1,56 @@
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+	
+<s:include value="/JSP/layout/header.jsp" />
+
+<s:if test="userEstConnecte & estAdmin">
+	<div class="row">
+		<s:include value="/JSP/layout/leftMenu.jsp" />
+		<div class="col-md-9 content">
+			<h2>Remove User</h2>
+			
+				  	<s:form theme="simple" cssClass="form-horizontal" role="form" action="administration_loadUserRemove" method="POST">
+	  			 		<div class="form-group">
+		  			 		<div class="col-sm-6">
+		  			 			<s:select cssClass="form-control" list="userList" id="select_user_remove" name="userRemove.nom" headerKey="-1" onchange="loadingUser();"/>
+		  			 		</div>
+		  			 		<div class="col-sm-2">
+		  			 			<s:submit cssClass="btn btn-default" value="Load" />
+		  			 		</div>
+		  			 	</div>
+		  			 	<div class="form-group">
+		  			 		<div class="col-sm-4">
+		  			 			<img src='<s:property value="userRemove.chemin" />' class="img-circle" width="60%">
+		  			 		</div>
+			  			 	<div class="col-md-8">
+				  			 	<div class="form-group">
+				  			 		<div>
+				  			 			<div class="form-group"><label style="width: 20%;">Surname</label><label> : <s:property value="userRemove.nom"/></label></div>
+									</div>
+									<div>
+				  			 			<div class="form-group"><label style="width: 20%;">Firstname</label><label> : <s:property value="userRemove.prenom"/></label></div>
+									</div>
+				  			 		<div>
+				  			 			<div class="form-group"><label style="width: 20%;">Mail</label><label> : <s:property value="userRemove.mail"/></label></div>
+									</div>
+									<div>
+				  			 			<div class="form-group"><label style="width: 20%;">Gender</label><label> : <s:property value="userRemove.sexe"/></label></div>
+									</div>
+									<div>
+				  			 			<div class="form-group"><label style="width: 20%;">Alternate</label><label> : <s:property value="userRemove.estAlternant"/></label></div>
+									</div>
+					  			</div>
+					  		</div>
+		  			 	</div>
+		  			 	<div class="col-sm-2">
+		  					<s:submit cssClass="btn btn-default" value="Remove"/> <!-- action="administration_RemoveUser" -->
+		  				</div>
+	  			 	</s:form>	
+		</div>	
+	</div>
+</s:if>
+<s:else>
+	<s:include value="/JSP/layout/authentification.jsp" />
+</s:else>
+
+<s:include value="/JSP/layout/footer.jsp" />

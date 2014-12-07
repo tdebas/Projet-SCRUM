@@ -20,8 +20,17 @@
 		else if ($(location).attr('pathname').indexOf('trombinoscope_tri.') > -1)
 			$('#trombi_menu').addClass('active'); 
 	
-		else if ($(location).attr('pathname').indexOf('administration_execute.') > -2)
-			$('#admin_menu').addClass('active'); 
+		else if ($(location).attr('pathname').indexOf('administration_executeAdd.') > -1)
+			$('#admin_menu_add').addClass('active'); 
+		
+		else if ($(location).attr('pathname').indexOf('administration_executeUpdate.') > -1)
+			$('#admin_menu_update').addClass('active'); 
+		
+		else if ($(location).attr('pathname').indexOf('administration_executeDelete.') > -1)
+			$('#admin_menu_delete').addClass('active'); 
+		
+		else if ($(location).attr('pathname').indexOf('administration_executeRole.') > -1)
+			$('#admin_menu_role').addClass('active'); 
 		
 	});
 	

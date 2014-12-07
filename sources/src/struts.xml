@@ -46,7 +46,10 @@
         </action>
         
         <action name="administration_*" class="com.teamIT.epsi.struts.actions.AdministrationAction" method="{1}">
-            <result>/JSP/Administration.jsp</result>
+            <result name="add">/JSP/admin/add.jsp</result>
+            <result name="update">/JSP/admin/update.jsp</result>
+            <result name="delete">/JSP/admin/delete.jsp</result>
+            <result name="role">/JSP/admin/role.jsp</result>
         </action>
         
         <action name="trombinoscope_*" class="com.teamIT.epsi.struts.actions.TrombiAction" method="{1}">
