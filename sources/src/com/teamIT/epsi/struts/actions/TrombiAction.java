@@ -3,10 +3,13 @@ package com.teamIT.epsi.struts.actions;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ModelDriven;
+import com.teamIT.epsi.hibernate.dao.MediasDAO;
 import com.teamIT.epsi.hibernate.dao.UtilisateurDAO;
+import com.teamIT.epsi.hibernate.tables.Medias;
 import com.teamIT.epsi.hibernate.tables.Utilisateur;
 
 public class TrombiAction extends BaseAction implements ModelDriven<TrombiAction.TrombiModel>{
@@ -31,6 +34,7 @@ public class TrombiAction extends BaseAction implements ModelDriven<TrombiAction
 	private static final long serialVersionUID = -4347886732611284863L;
 	public TrombiModel model = new TrombiModel();
 	public UtilisateurDAO uDAO = new UtilisateurDAO();
+	public MediasDAO mDAO = new MediasDAO();
 	
 	public String execute()
 	{
@@ -60,11 +64,17 @@ public class TrombiAction extends BaseAction implements ModelDriven<TrombiAction
 
 		String note = request.getParameter("rate");
 		Utilisateur utilisateur = uDAO.getUserById(Integer.parseInt(id));
+		
+		Medias media = mDAO.getMedia(utilisateur.chemin, utilisateur);
+		
 		int rate = Integer.parseInt(note);
 		
+		media.note = (media.note * media.nbVote + rate)/(media.nbVote+1);
+		media.nbVote++;
 		utilisateur.note = (utilisateur.note * utilisateur.nbVote + rate)/(utilisateur.nbVote+1);
 		utilisateur.nbVote ++;
 		
+		mDAO.saveOrUpdate(media);
 		uDAO.saveOrUpdateUser(utilisateur);
 		return SUCCESS;
 		} catch (Exception e) {

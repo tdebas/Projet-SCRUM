@@ -2,7 +2,18 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <s:include value="/JSP/layout/header.jsp" />
+<script type="text/javascript">
+  $(document).ready(function(){
+	$(".basic").jRating({
+		isDisabled : true,
+		length:5,
+		decimalLength:0,
+	    onClick : function(element,rate) {
 
+	    }
+       });
+  });
+</script>
 <s:if test="userEstConnecte">
 	<s:include value="/JSP/layout/leftMenu.jsp" />
 	<div class="col-md-10 content">
@@ -54,7 +65,7 @@
 					    <div class="thumbnail">
 					      <img src='<s:property value="chemin"/>' class="img-rounded">
 					      <div class="caption">
-					        <!--  note -->
+					        <div class="basic" style="margin:auto" data-average=<s:property value="note"/> ></div>
 					      </div>
 					    </div>
 					  </div>

@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Table(name = "medias")
 public class Medias {
 
-	public int idMedia;
+	public int idMedia, nbVote,  note;
 	public String chemin;
 	public Utilisateur utilisateur;
 	
@@ -56,6 +56,24 @@ public class Medias {
 
 	public void setChemin(String chemin) {
 		this.chemin = chemin;
+	}
+	
+	@Column(name = "note", nullable = false)
+	public int getNote() {
+		return note;
+	}
+
+	public void setNote(int note) {
+		this.note = note;
+	}
+	
+	@Column(name = "nbVote", nullable = false)
+	public int getNbVote() {
+		return nbVote;
+	}
+
+	public void setNbVote(int nbVote) {
+		this.nbVote = nbVote;
 	}
 	
 	

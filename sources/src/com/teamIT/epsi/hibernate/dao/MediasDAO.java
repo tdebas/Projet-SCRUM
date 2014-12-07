@@ -26,4 +26,12 @@ public class MediasDAO extends CoreDAO<Medias>{
 		 return mediaList;
 	}
 	
+	public Medias getMedia(String chemin,Utilisateur utilisateur){
+	     Medias media = (Medias) session.createCriteria(Medias.class)
+	    		 .add( Restrictions.eq("chemin", chemin) )
+	    		 .add( Restrictions.eq("utilisateur", utilisateur))
+	    		 .uniqueResult();
+	     return media;
+	 }
+	
 }
