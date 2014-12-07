@@ -20,6 +20,9 @@
 		else if ($(location).attr('pathname').indexOf('trombinoscope_tri.') > -1)
 			$('#trombi_menu').addClass('active'); 
 	
+		else if ($(location).attr('pathname').indexOf('administration_execute.') > -1)
+			$('#admin_menu').addClass('active'); 
+		
 		else if ($(location).attr('pathname').indexOf('administration_executeAdd.') > -1)
 			$('#admin_menu_add').addClass('active'); 
 		

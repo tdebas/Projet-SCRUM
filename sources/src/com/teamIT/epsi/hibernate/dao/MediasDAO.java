@@ -26,13 +26,4 @@ public class MediasDAO extends CoreDAO<Medias>{
 		 return mediaList;
 	}
 	
-	public void saveOrUpdateMedia(Medias media) throws Exception{
-		session.saveOrUpdate(media);
-		session.getTransaction().commit();
-	}
-	
-	public void removeUser(Medias media){
-		session.delete(media);
-		session.getTransaction().commit();
-	}
 }

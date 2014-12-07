@@ -13,6 +13,7 @@
 	<s:if test="estAdmin">
 		<h5><span class="glyphicon glyphicon-wrench"></span> Administration</h5>
 		<ul class="nav nav-pills nav-stacked">
+			<li id="admin_menu"><a href='<s:url action="administration_execute"/>'>Administration <span class="glyphicon glyphicon-wrench"></span></a></li>
 			<li id="admin_menu_add"><a href='<s:url action="administration_executeAdd"/>'>Add user <span class="glyphicon glyphicon-plus"></span></a></li>
 			<li id="admin_menu_update"><a href='<s:url action="administration_executeUpdate"/>'>Update user <span class="glyphicon glyphicon-pencil"></span></a></li>
 			<li id="admin_menu_delete"><a href='<s:url action="administration_executeDelete"/>'>Delete user <span class="glyphicon glyphicon-remove"></span></a></li>

@@ -24,7 +24,9 @@ public class UtilisateurAction extends BaseAction implements ModelDriven<Utilisa
 		private String contentType;
 	    private String filename;
 	    private String destPath;
-
+	    public String sexe;
+	    public String alternant;
+	    
 		public Utilisateur getUtilisateur() {
 			return utilisateur;
 		}
@@ -60,6 +62,23 @@ public class UtilisateurAction extends BaseAction implements ModelDriven<Utilisa
 	    public void setUploadFileName(String filename) {
 	       this.filename = filename;
 	    }
+
+		public String getSexe() {
+			return sexe;
+		}
+
+		public void setSexe(String sexe) {
+			this.sexe = sexe;
+		}
+
+		public String getAlternant() {
+			return alternant;
+		}
+
+		public void setAlternant(String alternant) {
+			this.alternant = alternant;
+		}
+	    
 	}
 	
 	private static final long serialVersionUID = 6378378866497247173L;
@@ -77,19 +96,19 @@ public class UtilisateurAction extends BaseAction implements ModelDriven<Utilisa
 		model.mediasList = mDAO.getAllByUserId(model.utilisateur);
 		
 		if (model.utilisateur.sexe.equals("1")){
-			model.utilisateur.setSexe("Man");
+			model.setSexe("Man");
 		} else if(model.utilisateur.sexe.equals("2")){
-			model.utilisateur.setSexe("Woman");
+			model.setSexe("Woman");
 		} else {
-			model.utilisateur.setSexe("Not specified");
+			model.setSexe("Not specified");
 		}
 		
 		if(model.utilisateur.estAlternant.equals("1")){
-			model.utilisateur.setEstAlternant("Yes");
+			model.setAlternant("Yes");
 		} else if(model.utilisateur.estAlternant.equals("2")){
-			model.utilisateur.setEstAlternant("No");
+			model.setAlternant("No");
 		} else {
-			model.utilisateur.setEstAlternant("Not specified");
+			model.setAlternant("Not specified");
 		}
 		
 		return "profil";
@@ -125,7 +144,7 @@ public class UtilisateurAction extends BaseAction implements ModelDriven<Utilisa
 			model.destPath = tokens[0] + "Trombinoscope/sources/webapp/IMG/";
 			File destFile  = new File(model.destPath, model.filename);
 	    	FileUtils.copyFile(model.file, destFile);
-	    	model.utilisateur.setChemin("http://localhost:8080/trombi/IMG/" + model.filename);
+	    	model.utilisateur.setChemin("/IMG/" + model.filename);
 		}
 		
 		uDAO.saveOrUpdateUser(model.utilisateur);
