@@ -35,6 +35,29 @@
 		else if ($(location).attr('pathname').indexOf('administration_executeRole.') > -1)
 			$('#admin_menu_role').addClass('active'); 
 		
+		else if ($(location).attr('pathname').indexOf('administration_addUser.') > -1)
+			$('#admin_menu').addClass('active'); 
+		
+		else if ($(location).attr('pathname').indexOf('administration_updateUser.') > -1)
+			$('#admin_menu').addClass('active'); 
+		
+		else if ($(location).attr('pathname').indexOf('administration_RemoveUser.') > -1)
+			$('#admin_menu').addClass('active'); 
+		
+		else if ($(location).attr('pathname').indexOf('administration_changePicture.') > -1)
+			$('#admin_menu').addClass('active'); 
+		
+		else if ($(location).attr('pathname').indexOf('administration_changingRoles.') > -1)
+			$('#admin_menu').addClass('active'); 
+		
+		else if ($(location).attr('pathname').indexOf('administration_loadUserEdit.') > -1)
+			$('#admin_menu_update').addClass('active');
+		
+		else if ($(location).attr('pathname').indexOf('administration_loadUserRemove.') > -1)
+			$('#admin_menu_delete').addClass('active');
+		
+		else if ($(location).attr('pathname').indexOf('utilisateur_profil.') > -1)
+			$('#trombi_menu').addClass('active');
 	});
 	
 	
