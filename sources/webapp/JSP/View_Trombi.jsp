@@ -1,30 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <s:include value="/JSP/layout/header.jsp" />
-<<<<<<< .mine
+
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-  
-=======
-<script type="text/javascript">
-  $(document).ready(function(){
-	$(".basic").jRating({
-		length:5,
-		decimalLength:0,
-	    onClick : function(element,rate) {
-         $.ajax({
-           type: "POST",
-           url: "/trombi/trombinoscope_vote",
-           data: {rate:rate, id: $(element).attr("data-id")},
-           success: function(){
-           }
-         });
-	    }
-       });
-  });
-</script>
->>>>>>> .r72
+
 <s:if test="userEstConnecte">
 	<s:include value="/JSP/layout/leftMenu.jsp" />
 	<div class="col-md-10 content">
@@ -70,7 +51,7 @@
 				</div>
 				</s:form>  		
 			<br>
-<<<<<<< .mine
+
 		<% int nombre = 0; %>
 		
 		<div class="dropper">
@@ -83,6 +64,9 @@
 					      <img src='<s:property value="chemin"/>' class="img-rounded">
 					      <div class="caption">
 					        <h4><s:property value="nom"/> <s:property value="prenom"/></h4>
+							
+							<div class="basic" style="margin:auto" data-average=<s:property value="note"/> data-id=<s:property value="idUtilisateur"/>></div>					       
+					       
 					        <s:if test="sexe == 1">
 					        	<p><a href="${Utilisateur}" class="btn btn-primary">See profil</a></p>
 					        </s:if>
@@ -95,31 +79,7 @@
 	
 				</s:iterator>
 			</div>
-=======
-		<div class="row">
-			<s:iterator value="ListUtilisateur">
-			<s:url action="utilisateur_profil" var="Utilisateur"><s:param name="idUser"><s:property value="idUtilisateur"/></s:param></s:url>
-			  <div class="col-sm-6 col-md-3">
-			    <div class="thumbnail">
-			      <img src='<s:property value="chemin"/>' class="img-rounded">
-			      <div class="caption">
-			        <h4><s:property value="nom"/> <s:property value="prenom"/></h4>
-
-			        <div class="basic" style="margin:auto" data-average=<s:property value="note"/> data-id=<s:property value="idUtilisateur"/>></div>
-
-			        <s:if test="sexe == 1">
-			        	<p><a href="${Utilisateur}" class="btn btn-primary">See profil</a></p>
-			        </s:if>
-			        <s:else>
-			        	<p><a href="${Utilisateur}" class="btn btn-warning">See profil</a></p>
-			        </s:else>
-			      </div>
-			    </div>
-			  </div>
-			</s:iterator>
->>>>>>> .r72
 		</div>
-		
 	</div>
 </s:if>
 <s:else>
@@ -128,7 +88,28 @@
 
 <s:include value="/JSP/layout/footer.jsp" />
 
-<script>
+<script type="text/javascript">
+
+// Début de la notation
+	$(document).ready(function(){
+		$(".basic").jRating({
+			length:5,
+			decimalLength:0,
+		    onClick : function(element,rate) {
+	         $.ajax({
+	           type: "POST",
+	           url: "/trombi/trombinoscope_vote",
+	           data: {rate:rate, id: $(element).attr("data-id")},
+	           success: function(){
+	           }
+	         });
+		    }
+	       });
+	  });
+// Fin de la notation
+
+
+// Début du Drag ans Drop
 	$(".draggable").draggable
 	({  
 	    revert: 'invalid',
@@ -140,6 +121,17 @@
 	$(".draggable").data({'originalLeft': $(".draggable").css('left'),
 	                  'origionalTop': $(".draggable").css('top')
 	});
+	
+	
+	$( ".droppable" ).draggable({
+		 scrollSpeed: 100
+	});
+	
+	// Getter
+	var scrollSpeed = $( ".droppable" ).draggable( "option", "scrollSpeed" );
+	 
+	// Setter
+	$( ".droppable" ).draggable( "option", "scrollSpeed", 100 );
 	
 	
 	$(".droppable").droppable
@@ -156,5 +148,7 @@
 	                         'top': $(".draggable").data('origionalTop')}
 	);
 	});
+// Fin du Drag ans Drop
+
 </script>
 
