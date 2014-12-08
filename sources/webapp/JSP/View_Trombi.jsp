@@ -64,10 +64,10 @@
 							<div class="basic" style="margin:auto" data-average=<s:property value="note"/> data-id=<s:property value="idUtilisateur"/>></div>					       
 					       
 					        <s:if test="sexe == 1">
-					        	<p><a href="${Utilisateur}" class="btn btn-primary">See profil</a></p>
+					        	<p><a href="${Utilisateur}" style="margin-top:10px;" class="btn btn-primary">See profil</a></p>
 					        </s:if>
 					        <s:else>
-					        	<p><a href="${Utilisateur}" class="btn btn-warning">See profil</a></p>
+					        	<p><a href="${Utilisateur}" style="margin-top:10px;" class="btn btn-warning">See profil</a></p>
 					        </s:else>
 					        
 					      </div>
