@@ -59,7 +59,7 @@
 					    <div class="thumbnail">
 					      <img src='${pageContext.request.contextPath}<s:property value="chemin"/>' class="img-rounded">
 					      <div class="caption">
-					        <h4><s:property value="nom"/> <s:property value="prenom"/></h4>
+					        <h6><s:property value="nom"/> <s:property value="prenom"/></h6>
 							
 							<div class="basic" style="margin:auto" data-average=<s:property value="note"/> data-id=<s:property value="idUtilisateur"/>></div>					       
 					       
