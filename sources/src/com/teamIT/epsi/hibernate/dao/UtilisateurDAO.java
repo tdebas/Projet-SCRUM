@@ -24,14 +24,9 @@ public class UtilisateurDAO extends CoreDAO<Utilisateur> {
 	     return user;
 	 }
 	
-	public void saveOrUpdateUser(Utilisateur utilisateur) throws Exception{
-		session.saveOrUpdate(utilisateur);
-		session.getTransaction().commit();
-	}
-	
-	public void removeUser(Utilisateur utilisateur){
-		session.delete(utilisateur);
-		session.getTransaction().commit();
+	public int getIdDroitUser(int idUtilisateur){
+		int i = (int) session.createSQLQuery("SELECT droit.id FROM droit, utilisateur WHERE utilisateur.idDroit = droit.id AND utilisateur.id = " + idUtilisateur).uniqueResult();
+		return i;
 	}
 	
 	public Utilisateur getUserById(int id){

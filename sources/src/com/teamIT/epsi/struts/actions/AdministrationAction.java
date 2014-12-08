@@ -187,7 +187,7 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 		
 		model.userList = uDAO.getAllUser();
 		
-		uDAO.saveOrUpdateUser(model.utilisateur);
+		uDAO.saveOrUpdate(model.utilisateur);
 		
 		addActionMessage("Vous venez d'ajouter l'utilisateur " + model.utilisateur.nom + " " + model.utilisateur.prenom +".");
 		
@@ -218,7 +218,6 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 	
 	public String updateUser() throws Exception{
 		
-		Utilisateur userEdit = uDAO.getUserById(model.utilisateur.idUtilisateur);
 		boolean empty = false;
 		
 		if((model.utilisateur.nom.isEmpty()) || (model.utilisateur.nom == null)){
@@ -244,31 +243,44 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 		if(empty == true){
 			return executeUpdate();
 		}
-		
-		if(model.file != null) {
-			model.filename = model.utilisateur.nom + "_" + model.utilisateur.prenom + "_" + dm.date() + "_" + dm.random() + ".jpg";
-			String classPath = AdministrationAction.class.getClassLoader().getResource(AdministrationAction.class.getName().replaceAll("\\.", "/" )+".class").getPath();
-			String[] tokens = classPath.split(".metadata");
-			model.destPath = tokens[0] + "Trombinoscope/sources/webapp/IMG/";
-			File destFile  = new File(model.destPath, model.filename);
-	    	FileUtils.copyFile(model.file, destFile);
-			model.utilisateur.setChemin("/IMG/" + model.filename);
-		} else {
-			model.utilisateur.chemin = userEdit.chemin;
-		}
-		
+	
 		model.utilisateur.setPassword(dm.crypt(model.utilisateur));
-		model.utilisateur.droit = userEdit.droit;
-		model.utilisateur.note = userEdit.note;
-		model.utilisateur.nbVote = userEdit.nbVote;
 		
-		model.userList = uDAO.getAllUser();
+		model.utilisateur.setDroit(dDAO.getDroitById(uDAO.getIdDroitUser(model.utilisateur.idUtilisateur)));
 		
-		uDAO.saveOrUpdateUser(model.utilisateur);
+		uDAO.update(model.utilisateur);
 		
 		addActionMessage("Vous venez de modifier l'utilisateur " + model.utilisateur.nom + " " + model.utilisateur.prenom +".");
 		
-		return execute();
+		return SUCCESS;
+	}
+	
+	public String changePicture() throws Exception{
+		
+		model.utilisateur = uDAO.getUserById(model.utilisateur.idUtilisateur);
+		String chemin = model.utilisateur.chemin;
+		
+		if(model.file == null){
+			addActionError("File is empty"); 
+			return executeUpdate();
+		}
+		
+		model.filename = model.utilisateur.nom + "_" + model.utilisateur.prenom + "_" + dm.date() + "_" + dm.random() + ".jpg";
+		String classPath = UtilisateurAction.class.getClassLoader().getResource(UtilisateurAction.class.getName().replaceAll("\\.", "/" )+".class").getPath();
+		String[] tokens = classPath.split(".metadata");
+		model.destPath = tokens[0] + "Trombinoscope/sources/webapp/IMG/";
+		File destFile  = new File(model.destPath, model.filename);
+    	FileUtils.copyFile(model.file, destFile);
+    	model.utilisateur.setChemin("/IMG/" + model.filename);
+		
+		Medias media = new Medias(chemin, model.utilisateur);
+		
+		mDAO.save(media);
+		uDAO.update(model.utilisateur);
+		
+		addActionMessage("Vous venez de changer l'image de l'utilisateur " + model.utilisateur.nom + " " + model.utilisateur.prenom +".");
+		
+		return SUCCESS;
 	}
 	
 	public String loadUserRemove(){

@@ -9,7 +9,6 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 import com.teamIT.epsi.hibernate.dao.MediasDAO;
 import com.teamIT.epsi.hibernate.dao.UtilisateurDAO;
-import com.teamIT.epsi.hibernate.tables.Medias;
 import com.teamIT.epsi.hibernate.tables.Utilisateur;
 
 public class TrombiAction extends BaseAction implements ModelDriven<TrombiAction.TrombiModel>{
@@ -72,7 +71,7 @@ public class TrombiAction extends BaseAction implements ModelDriven<TrombiAction
 		utilisateur.note = (utilisateur.note * utilisateur.nbVote + rate)/(utilisateur.nbVote+1);
 		utilisateur.nbVote ++;
 		
-		uDAO.saveOrUpdateUser(utilisateur);
+		uDAO.saveOrUpdate(utilisateur);
 		return SUCCESS;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

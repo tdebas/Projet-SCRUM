@@ -117,6 +117,7 @@ public class UtilisateurAction extends BaseAction implements ModelDriven<Utilisa
 	public String editProfil() throws Exception{
 		/* Surname FirstName Mail Password gender Alternate Chemin(photo) Note Droit */
 		boolean empty = false;
+		
 		if((model.utilisateur.nom.isEmpty()) || (model.utilisateur.nom == null)){
 			addActionError("Surname is empty.");
 			empty = true;
@@ -136,24 +137,41 @@ public class UtilisateurAction extends BaseAction implements ModelDriven<Utilisa
 		model.utilisateur.setDroit(((Utilisateur) sessionMap.get("utilisateur")).getDroit());
 		model.utilisateur.setNote(((Utilisateur) sessionMap.get("utilisateur")).getNote());
 		model.utilisateur.setNbVote(((Utilisateur) sessionMap.get("utilisateur")).getNbVote());
-		if(model.file == null){
-			model.utilisateur.setChemin(((Utilisateur) sessionMap.get("utilisateur")).getChemin());
-		}else{
-			model.filename = model.utilisateur.nom + "_" + model.utilisateur.prenom + "_" + dm.date() + "_" + dm.random() + ".jpg";
-			String classPath = UtilisateurAction.class.getClassLoader().getResource(UtilisateurAction.class.getName().replaceAll("\\.", "/" )+".class").getPath();
-			String[] tokens = classPath.split(".metadata");
-			model.destPath = tokens[0] + "Trombinoscope/sources/webapp/IMG/";
-			File destFile  = new File(model.destPath, model.filename);
-	    	FileUtils.copyFile(model.file, destFile);
-	    	model.utilisateur.setChemin("/IMG/" + model.filename);
-		}
+		model.utilisateur.setChemin(((Utilisateur) sessionMap.get("utilisateur")).getChemin());
 		
-		uDAO.saveOrUpdateUser(model.utilisateur);
+		uDAO.update(model.utilisateur);
 		
 		sessionMap.clear();
 
-		return SUCCESS;
+		return "success";
 	}
+	
+	public String changePicture() throws Exception{
+		
+		model.utilisateur = uDAO.getUserById(model.utilisateur.idUtilisateur);
+		String chemin = model.utilisateur.chemin;
+		
+		if(model.file == null){
+			addActionError("File is empty"); 
+			return "success";
+		}
+		
+		model.filename = model.utilisateur.nom + "_" + model.utilisateur.prenom + "_" + dm.date() + "_" + dm.random() + ".jpg";
+		String classPath = UtilisateurAction.class.getClassLoader().getResource(UtilisateurAction.class.getName().replaceAll("\\.", "/" )+".class").getPath();
+		String[] tokens = classPath.split(".metadata");
+		model.destPath = tokens[0] + "Trombinoscope/sources/webapp/IMG/";
+		File destFile  = new File(model.destPath, model.filename);
+    	FileUtils.copyFile(model.file, destFile);
+    	model.utilisateur.setChemin("/IMG/" + model.filename);
+		
+		Medias media = new Medias(chemin, model.utilisateur);
+		
+		mDAO.save(media);
+		uDAO.update(model.utilisateur);
+		
+		return "success";
+	}
+
 
 	public UtilisateurModel getModel() {
 		return model;

@@ -38,6 +38,17 @@ public class Utilisateur {
 		this.nbVote = nbVote;
 	}
 	
+	public Utilisateur(int idUtilisateur, String nom, String prenom,
+			String mail, String password, String sexe, String estAlternant) {
+		super();
+		this.idUtilisateur = idUtilisateur;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.mail = mail;
+		this.password = password;
+		this.sexe = sexe;
+		this.estAlternant = estAlternant;
+	}
 	/* Getters & Setters */
 	
 	@Id
@@ -124,7 +135,7 @@ public class Utilisateur {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idDroit", nullable = false)
+	@JoinColumn(name = "idDroit")
 	public Droit getDroit() {
 		return droit;
 	}

@@ -9,7 +9,7 @@
 		<div class="col-md-7 content">
 			<h2>Edit profil</h2>  			
 	  		<div class="panel-body">
-			  <s:form theme="simple" cssClass="form-horizontal" role="form" action="utilisateur_editProfil" method="POST" enctype="multipart/form-data">
+			  <s:form theme="simple" cssClass="form-horizontal" role="form" action="utilisateur_editProfil" method="POST">
 				<s:hidden name="utilisateur.idUtilisateur" value="%{#session.utilisateur.idUtilisateur}" />
 					<div class="form-group">
 				    	<label for="edit_form" class="col-sm-2 control-label">Surname</label>
@@ -48,6 +48,16 @@
 				    	</div>
 		  			</div>
 		  			<div class="form-group">
+		    			<div class="col-sm-offset-2 col-sm-9">
+		      				<s:submit cssClass="btn btn-default" value="Edit" />
+		    			</div>
+		  			</div>
+				</s:form>
+			 </div>
+			 <h2>Change picture</h2>
+				 <s:form theme="simple" cssClass="form-horizontal" role="form" action="utilisateur_changePicture" method="POST" enctype="multipart/form-data">
+				 	<s:hidden name="utilisateur.idUtilisateur" value="%{#session.utilisateur.idUtilisateur}" />
+				 	<div class="form-group">
 		  				<label for="edit_form" class="col-sm-2 control-label">Photo *.jpg</label>
 			    		<div class="col-sm-9">
 			      			<p style="text-align:left"><s:file name="upload" label="File" accept="image/jpeg" /></p>
@@ -55,11 +65,10 @@
 				  	</div>
 		  			<div class="form-group">
 		    			<div class="col-sm-offset-2 col-sm-9">
-		      				<s:submit cssClass="btn btn-default" value="Edit" />
+		      				<s:submit cssClass="btn btn-default" value="Change" />
 		    			</div>
 		  			</div>
 				</s:form>
-			 </div>
 		</div>
 		<div class="col-md-3">
 			<s:if test="hasActionErrors()">

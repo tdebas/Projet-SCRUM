@@ -6,7 +6,7 @@
 <s:if test="userEstConnecte & estAdmin">
 	<div class="row">
 		<s:include value="/JSP/layout/leftMenu.jsp" />
-		<div class="col-md-9 content">
+		<div class="col-md-7 content">
 			<h2>Remove User</h2>
 			
 			<s:form theme="simple" cssClass="form-horizontal" role="form" action="administration_loadUserRemove" method="POST">
