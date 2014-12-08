@@ -65,16 +65,13 @@ public class TrombiAction extends BaseAction implements ModelDriven<TrombiAction
 		String note = request.getParameter("rate");
 		Utilisateur utilisateur = uDAO.getUserById(Integer.parseInt(id));
 		
-		Medias media = mDAO.getMedia(utilisateur.chemin, utilisateur);
+		
 		
 		int rate = Integer.parseInt(note);
-		
-		media.note = (media.note * media.nbVote + rate)/(media.nbVote+1);
-		media.nbVote++;
+
 		utilisateur.note = (utilisateur.note * utilisateur.nbVote + rate)/(utilisateur.nbVote+1);
 		utilisateur.nbVote ++;
 		
-		mDAO.saveOrUpdate(media);
 		uDAO.saveOrUpdateUser(utilisateur);
 		return SUCCESS;
 		} catch (Exception e) {

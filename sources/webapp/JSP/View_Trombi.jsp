@@ -2,7 +2,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <s:include value="/JSP/layout/header.jsp" />
 
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
 <s:if test="userEstConnecte">
@@ -87,11 +86,11 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		// Début de la notation
-		/*$(".basic").jRating({
+		$(".basic").jRating({
 			length:5,
 			decimalLength:0,
 		    onClick : function(element,rate) {
-	         /*$.ajax({
+	         $.ajax({
 	           type: "POST",
 	           url: "/trombi/trombinoscope_vote",
 	           data: {rate:rate, id: $(element).attr("data-id")},
@@ -99,7 +98,7 @@
 	           }
 	         });
 		    }
-	       });*/
+	       });
 	    // Fin de la notation
 	
 	    // Début du Drag ans Drop
