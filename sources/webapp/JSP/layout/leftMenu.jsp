@@ -6,7 +6,7 @@
 	<h5><span class="glyphicon glyphicon-user"></span> Main menu</h5>
 	<ul class="nav nav-pills nav-stacked">
 	    <li id="home_menu"><a href='<s:url action="connexion_execute"/>'>Home <span class="glyphicon glyphicon-home"></span></a></li>
-	    <li id="edit_menu"><a href='<s:url action="utilisateur_execute"/>'>Edit profil <span class="glyphicon glyphicon-pencil"></span></a></li>
+	    <li id="edit_menu"><a href='<s:url action="utilisateur_execute"/>'>Edit profile <span class="glyphicon glyphicon-pencil"></span></a></li>
 	    <li id="trombi_menu"><a href='<s:url action="trombinoscope_execute"/>'>Trombinoscope <span class="glyphicon glyphicon-th"></span></a></li>
 	    <li><a href='<s:url action="connexion_deconnexion"/>'>Logout <span class="glyphicon glyphicon-off"></span></a></li>
 	</ul>

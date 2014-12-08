@@ -7,7 +7,7 @@
 	<div class="row">
 		<s:include value="/JSP/layout/leftMenu.jsp" />
 		<div class="col-md-7 content">
-			<h2>Edit profil</h2>  			
+			<h2>Edit profile</h2>  			
 	  		<div class="panel-body">
 			  <s:form theme="simple" cssClass="form-horizontal" role="form" action="utilisateur_editProfil" method="POST">
 				<s:hidden name="utilisateur.idUtilisateur" value="%{#session.utilisateur.idUtilisateur}" />
