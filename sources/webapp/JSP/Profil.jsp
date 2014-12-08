@@ -25,7 +25,6 @@
 				<div class="form-group"><br/>
 					<div class="col-md-4">
 						<img src='${pageContext.request.contextPath}<s:property value="utilisateur.chemin"/>' class="img-circle" width="70%">
-						<!-- note -->
 					</div>
 					<div class="col-md-8">
 				 		<div class="form-group">

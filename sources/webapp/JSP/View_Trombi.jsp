@@ -2,9 +2,8 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <s:include value="/JSP/layout/header.jsp" />
 
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
 <s:if test="userEstConnecte">
 	<s:include value="/JSP/layout/leftMenu.jsp" />
@@ -52,14 +51,12 @@
 				</s:form>  		
 			<br>
 
-		<% int nombre = 0; %>
 		
-		<div class="dropper">
-			<div class="row droppable">
+
+			<div class="row sortable">
 				<s:iterator value="ListUtilisateur">
 				<s:url action="utilisateur_profil" var="Utilisateur"><s:param name="idUser"><s:property value="idUtilisateur"/></s:param></s:url>
-				 			 
-					  <div id="<% nombre = nombre +1; %>" class="col-sm-6 col-md-3 draggable">
+					  <div class="col-sm-6 col-md-3">
 					    <div class="thumbnail">
 					      <img src='<s:property value="chemin"/>' class="img-rounded">
 					      <div class="caption">
@@ -73,13 +70,12 @@
 					        <s:else>
 					        	<p><a href="${Utilisateur}" class="btn btn-warning">See profil</a></p>
 					        </s:else>
+					        
 					      </div>
 					    </div>
 					  </div>
-	
 				</s:iterator>
 			</div>
-		</div>
 	</div>
 </s:if>
 <s:else>
@@ -89,14 +85,13 @@
 <s:include value="/JSP/layout/footer.jsp" />
 
 <script type="text/javascript">
-
-// Début de la notation
 	$(document).ready(function(){
-		$(".basic").jRating({
+		// Début de la notation
+		/*$(".basic").jRating({
 			length:5,
 			decimalLength:0,
 		    onClick : function(element,rate) {
-	         $.ajax({
+	         /*$.ajax({
 	           type: "POST",
 	           url: "/trombi/trombinoscope_vote",
 	           data: {rate:rate, id: $(element).attr("data-id")},
@@ -104,51 +99,17 @@
 	           }
 	         });
 		    }
-	       });
+	       });*/
+	    // Fin de la notation
+	
+	    // Début du Drag ans Drop
+		$(function() {
+			 $(".sortable").sortable({
+			    	tolerance:'pointer',
+					forceHelperSize: true
+			    });
+		});
+	    // Fin du Drag ans Drop
+		
 	  });
-// Fin de la notation
-
-
-// Début du Drag ans Drop
-	$(".draggable").draggable
-	({  
-	    revert: 'invalid',
-	    snap: '.droppable',
-	    snapMode: 'corner',
-	    snapTolerance: '22'
-	});
-	
-	$(".draggable").data({'originalLeft': $(".draggable").css('left'),
-	                  'origionalTop': $(".draggable").css('top')
-	});
-	
-	
-	$( ".droppable" ).draggable({
-		 scrollSpeed: 100
-	});
-	
-	// Getter
-	var scrollSpeed = $( ".droppable" ).draggable( "option", "scrollSpeed" );
-	 
-	// Setter
-	$( ".droppable" ).draggable( "option", "scrollSpeed", 100 );
-	
-	
-	$(".droppable").droppable
-	({
-	    accept: '.draggable', 
-	    drop: function(event, ui) 
-	    {
-	   		$(this).find(".draggable").html();
-	    }
-	});
-	
-	$(".reset").click(function() {
-	    $(".draggable").css({'left': $(".draggable").data('originalLeft'),
-	                         'top': $(".draggable").data('origionalTop')}
-	);
-	});
-// Fin du Drag ans Drop
-
 </script>
-
