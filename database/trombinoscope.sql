@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `droit` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+);
 
 --
 -- Contenu de la table `droit`
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `medias` (
   `note` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idUtil` (`idUtil`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ;
 
 --
 -- Contenu de la table `medias`
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `nbVote` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idDroit` (`idDroit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
+);
 
 --
 -- Contenu de la table `utilisateur`
