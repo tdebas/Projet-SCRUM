@@ -2,21 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 	
 <s:include value="/JSP/layout/header.jsp" />
-<script type="text/javascript">
-  $(document).ready(function(){
-	
-	  function loadingUser(){
-         $.ajax({
-           type: "POST",
-           url: "/trombi/administration_loadUserRemove",
-           data: {nom: $("#select_user_remove").val()},
-           success: function(){
-           }
-         });
-	  }
- 
-  });
-</script>
+
 <s:if test="userEstConnecte & estAdmin">
 	<div class="row">
 		<s:include value="/JSP/layout/leftMenu.jsp" />
@@ -34,33 +20,40 @@
 				</div>
 			</s:form>
 			<br/><br/>
-			<s:form theme="simple" cssClass="form-horizontal" role="form" action="administration_RemoveUser" method="POST">
+			<s:form id="hide" theme="simple" cssClass="form-horizontal" role="form" action="administration_RemoveUser" method="POST">
 				<s:hidden name="utilisateur.idUtilisateur" value="%{utilisateur.idUtilisateur}" />
-				<div class="form-group">
+				<div class="form-group" >
 					<div class="col-sm-4">
 						<img src='${pageContext.request.contextPath}<s:property value="utilisateur.chemin" />' class="img-circle" width="60%">
 					</div>
 					<div class="col-md-8">
 						<div class="form-group">
 							<div>
-								<div class="form-group"><label style="width: 20%;">Surname</label><label> : <s:property value="utilisateur.nom"/></label></div>
+								<div class="form-group">
+									<label style="width: 20%;">Surname :</label>  
+									<span id="empty"><s:property value="utilisateur.nom"/></span>
+								</div>
 							</div>
 							<div>
-					 			<div class="form-group"><label style="width: 20%;">Firstname</label><label> : <s:property value="utilisateur.prenom"/></label></div>
+					 			<div class="form-group"><label style="width: 20%;">Firstname :</label>
+					 			<s:property value="utilisateur.prenom"/></div>
 							</div>
 					 		<div>
-					 			<div class="form-group"><label style="width: 20%;">Mail</label><label> : <s:property value="utilisateur.mail"/></label></div>
+					 			<div class="form-group"><label style="width: 20%;">Mail :</label>
+					 			<s:property value="utilisateur.mail"/></div>
 							</div>
 							<div>
-					 			<div class="form-group"><label style="width: 20%;">Gender</label><label> : <s:property value="sexe"/></label></div>
+					 			<div class="form-group"><label style="width: 20%;">Gender :</label>
+					 			<s:property value="sexe"/></div>
 							</div>
 							<div>
-					 			<div class="form-group"><label style="width: 20%;">Alternate</label><label> : <s:property value="alternant"/></label></div>
+					 			<div class="form-group"><label style="width: 20%;">Alternate :</label>
+					 			<s:property value="alternant"/></div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-sm-2" >
 					<s:submit cssClass="btn btn-danger" value="Remove"/>
 				</div>
 			</s:form>	
@@ -72,3 +65,22 @@
 </s:else>
 
 <s:include value="/JSP/layout/footer.jsp" />
+<script type="text/javascript">
+  $(document).ready(function(){
+	
+	  function loadingUser(){
+         $.ajax({
+           type: "POST",
+           url: "/trombi/administration_loadUserRemove",
+           data: {nom: $("#select_user_remove").val()},
+           success: function(){
+           }
+         });
+	  }
+ 
+	  if($('#empty').text() == ""){
+		  $('#hide').addClass('hide');
+	  }
+	  
+  });
+</script>

@@ -57,7 +57,7 @@
 				<s:url action="utilisateur_profil" var="Utilisateur"><s:param name="idUser"><s:property value="idUtilisateur"/></s:param></s:url>
 					  <div class="col-sm-6 col-md-3">
 					    <div class="thumbnail">
-					      <img src='<s:property value="chemin"/>' class="img-rounded">
+					      <img src='${pageContext.request.contextPath}<s:property value="chemin"/>' class="img-rounded">
 					      <div class="caption">
 					        <h4><s:property value="nom"/> <s:property value="prenom"/></h4>
 							

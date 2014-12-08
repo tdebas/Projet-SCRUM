@@ -124,12 +124,12 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 	}
 	
 	public String executeUpdate(){
-		model.userList = uDAO.getAllUser();
+		model.userList = uDAO.getAllUserExceptSuperAdmin();
 		return "update";
 	}
 	
 	public String executeDelete(){
-		model.userList = uDAO.getAllUser();
+		model.userList = uDAO.getAllUserExceptSuperAdmin();
 		return "delete";
 	}
 	
@@ -217,11 +217,58 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 	}
 	
 	public String updateUser() throws Exception{
+		
+		Utilisateur userEdit = uDAO.getUserById(model.utilisateur.idUtilisateur);
+		boolean empty = false;
+		
+		if((model.utilisateur.nom.isEmpty()) || (model.utilisateur.nom == null)){
+			addActionError("Surname is empty");
+			empty = true;
+		}
+		if((model.utilisateur.prenom.isEmpty()) || (model.utilisateur.prenom == null)){
+			addActionError("Firstname is empty");
+			empty = true;
+		}
+		if((model.utilisateur.mail.isEmpty()) || (model.utilisateur.mail == null)){
+			addActionError("Mail is empty");
+			empty = true;
+		}
+		if(model.utilisateur.sexe == null){
+			addActionError("Gender is empty");
+			empty = true;
+		}
+		if(model.utilisateur.estAlternant == null){
+			addActionError("Alternate is empty");
+			empty = true;
+		}
+		if(empty == true){
+			return executeUpdate();
+		}
+		
+		if(model.file != null) {
+			model.filename = model.utilisateur.nom + "_" + model.utilisateur.prenom + "_" + dm.date() + "_" + dm.random() + ".jpg";
+			String classPath = AdministrationAction.class.getClassLoader().getResource(AdministrationAction.class.getName().replaceAll("\\.", "/" )+".class").getPath();
+			String[] tokens = classPath.split(".metadata");
+			model.destPath = tokens[0] + "Trombinoscope/sources/webapp/IMG/";
+			File destFile  = new File(model.destPath, model.filename);
+	    	FileUtils.copyFile(model.file, destFile);
+			model.utilisateur.setChemin("/IMG/" + model.filename);
+		} else {
+			model.utilisateur.chemin = userEdit.chemin;
+		}
+		
 		model.utilisateur.setPassword(dm.crypt(model.utilisateur));
-		model.utilisateur.setDroit(dDAO.getDroitById(1));
-		model.utilisateur.setChemin("/IMG/" + model.filename);
+		model.utilisateur.droit = userEdit.droit;
+		model.utilisateur.note = userEdit.note;
+		model.utilisateur.nbVote = userEdit.nbVote;
+		
+		model.userList = uDAO.getAllUser();
+		
 		uDAO.saveOrUpdateUser(model.utilisateur);
-		return executeUpdate();
+		
+		addActionMessage("Vous venez de modifier l'utilisateur " + model.utilisateur.nom + " " + model.utilisateur.prenom +".");
+		
+		return execute();
 	}
 	
 	public String loadUserRemove(){
