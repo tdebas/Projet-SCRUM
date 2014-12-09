@@ -48,10 +48,7 @@
 					</div>
 				</div>
 				</s:form>  		
-			<br>
-
-		
-
+			<br/>
 			<div class="row sortable">
 				<s:iterator value="ListUtilisateur">
 				<s:url action="utilisateur_profil" var="Utilisateur"><s:param name="idUser"><s:property value="idUtilisateur"/></s:param></s:url>
