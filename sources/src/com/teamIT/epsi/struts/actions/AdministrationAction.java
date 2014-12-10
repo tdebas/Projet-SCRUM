@@ -117,6 +117,9 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 	public DiversMethod dm = new DiversMethod();
 	
 	public String execute(){
+		File fichier = new File("");
+		System.out.println(fichier.getAbsolutePath());
+		System.out.println(fichier.getPath());
 		return SUCCESS;
 	}
 	public String executeAdd(){
