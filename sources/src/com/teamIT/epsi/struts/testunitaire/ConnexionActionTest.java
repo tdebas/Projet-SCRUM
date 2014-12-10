@@ -1,4 +1,4 @@
-package com.teamIT.epsi.struts.actions;
+package com.teamIT.epsi.struts.testunitaire;
 
 import static org.junit.Assert.*;
 
@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import com.teamIT.epsi.hibernate.dao.UtilisateurDAO;
 import com.teamIT.epsi.hibernate.tables.Utilisateur;
+import com.teamIT.epsi.struts.actions.ConnexionAction;
 import com.teamIT.epsi.struts.actions.ConnexionAction.ConnexionModel;
 
 public class ConnexionActionTest {

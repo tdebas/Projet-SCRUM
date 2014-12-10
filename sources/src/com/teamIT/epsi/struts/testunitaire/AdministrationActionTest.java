@@ -1,4 +1,4 @@
-package com.teamIT.epsi.struts.actions;
+package com.teamIT.epsi.struts.testunitaire;
 
 import static org.junit.Assert.*;
 
@@ -9,6 +9,7 @@ import org.junit.Test;
 import com.teamIT.epsi.hibernate.tables.Droit;
 import com.teamIT.epsi.hibernate.tables.Medias;
 import com.teamIT.epsi.hibernate.tables.Utilisateur;
+import com.teamIT.epsi.struts.actions.AdministrationAction;
 
 public class AdministrationActionTest {
 protected AdministrationAction admin;
