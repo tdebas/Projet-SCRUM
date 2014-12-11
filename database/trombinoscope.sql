@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 08 Décembre 2014 à 08:33
+-- Généré le :  Jeu 11 Décembre 2014 à 20:31
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `droit` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `droit`
@@ -51,18 +51,26 @@ CREATE TABLE IF NOT EXISTS `medias` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `chemin` varchar(255) NOT NULL,
   `idUtil` int(255) NOT NULL,
-  `nbVote` int(11) DEFAULT NULL,
-  `note` int(11) DEFAULT NULL,
+  `note` int(11) NOT NULL DEFAULT '0',
+  `nbVote` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `idUtil` (`idUtil`)
-) ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 --
 -- Contenu de la table `medias`
 --
 
---INSERT INTO `medias` (`id`, `chemin`, `idUtil`, `nbVote`, `note`) VALUES
---(1, '', 1, 0, 0);
+INSERT INTO `medias` (`id`, `chemin`, `idUtil`, `note`, `nbVote`) VALUES
+(19, '/IMG/Debas_Thomas_20141211_4343053.jpg', 4, 0, 0),
+(20, '/IMG/Devosse-Leger_Martin_20141211_8019696.jpg', 16, 0, 0),
+(21, '/IMG/Devosse-Leger_Martin_20141211_7160025.jpg', 16, 0, 0),
+(22, '/IMG/Vannoote_Romain_20141211_2566954.jpg', 17, 0, 0),
+(23, '/IMG/Jagoury_Matthieu_20141211_8043690.jpg', 20, 0, 0),
+(24, '/IMG/Maurice_Remy_20141211_9295809.jpg', 19, 0, 0),
+(25, '/IMG/Kaczmarek_ Jeremy_20141211_3147750.jpg', 21, 0, 0),
+(26, '/IMG/Devosse-Leger_Martin_20141211_7615564.jpg', 16, 0, 0),
+(27, '/IMG/Debas_Thomas_20141211_8294568.jpg', 4, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -84,40 +92,20 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `nbVote` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idDroit` (`idDroit`)
-);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
 -- Contenu de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `mail`, `mdp`, `sexe`, `estAlternant`, `note`, `idDroit`, `chemin`, `nbVote`) VALUES
-(1, 'Andrezejwski ', 'Thomas', 'Andrezejwski.Thomas@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 0, 1, '/IMG/photo.jpg', 0),
-(2, 'Bayart', 'Simon', 'Bayart.Simon@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '2', 0, 1, '/IMG/photo.jpg', 0),
-(3, 'Berton', 'Pierre-Yves', 'berton.pierreyves@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '2', 0, 1, '/IMG/photo.jpg', 0),
-(4, 'Bordet', 'William', 'bordet.william@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '2', 0, 1, '/IMG/photo.jpg', 0),
-(5, 'Bos', 'Romain', 'bos.romain@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 0, 1, '/IMG/photo.jpg', 0),
-(6, 'Debas', 'Thomas', 'thomas.debas@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 0, 3, '/IMG/photo.jpg', 0),
-(7, 'Demailly', 'Sebastien', 'demailly.sebastien@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 0, 1, '/IMG/photo.jpg', 0),
-(8, 'Deszcz', 'Sebastien', 'deszcz.sebastien@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '2', 0, 1, '/IMG/photo.jpg', 0),
-(9, 'Devosse Leger', 'Martin', 'devosseleger.martin@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 0, 1, '/IMG/photo.jpg', 0),
-(10, 'Devynck', 'Nicolas', 'devynck.nicolas@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 0, 1, '/IMG/photo.jpg', 0),
-(11, 'Drapich', 'Maxime', 'draphich.maxime@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '2', 0, 1, '/IMG/photo.jpg', 0),
-(12, 'Durak', 'Thomas', 'durak.thomas@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '2', 0, 1, '/IMG/photo.jpg', 0),
-(13, 'Gomes', 'Alexis', 'gomes.alexis@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '2', 0, 1, '/IMG/photo.jpg', 0),
-(14, 'Jagoury', 'Matthieu', 'jagoury.matthieu@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 0, 3, '/IMG/JagouryMatthieu_20141127_6922782.jpg', 0),
-(15, 'Kaczmarek', 'Jeremy', 'kaczmarek.jeremy@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 0, 1, '/IMG/photo.jpg', 0),
-(16, 'Laigle', 'Florian', 'laigle.florian@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 0, 1, '/IMG/photo.jpg', 0),
-(17, 'Leduc', 'Thomas', 'leduc.thomas@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 0, 1, '/IMG/photo.jpg', 0),
-(18, 'Logie', 'Quentin', 'logie.quentin@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 0, 1, '/IMG/photo.jpg', 0),
-(19, 'Loterie', 'Aymeric', 'loterie.aymeric@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 0, 1, '/IMG/photo.jpg', 0),
-(20, 'Maurice', 'Remi', 'remi.maurice@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 0, 3, '/IMG/photo.jpg', 0),
-(21, 'Meurillon', 'Gregoire', 'meurillon.gregoire@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '2', 0, 1, '/IMG/photo.jpg', 0),
-(22, 'Michel', 'Aurelien', 'michel.aurelien@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '2', 0, 1, '/IMG/photo.jpg', 0),
-(23, 'Neville', 'Nathan', 'neville.nathan@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 0, 1, '/IMG/photo.jpg', 0),
-(24, 'Pruvost', 'Quentin', 'pruvost.quentin@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 0, 1, '/IMG/photo.jpg', 0),
-(25, 'Stalter', 'Marianne', 'marianne.stalter@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '2', '1', 0, 3, '/IMG/photo.jpg', 0),
-(26, 'Vannoote', 'Romain', 'romain.vannoote@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 0, 3, '/IMG/photo.jpg', 0),
-(27, 'Wasilewski', 'David', 'wasilewski.david@epsi.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 0, 1, '/IMG/photo.jpg', 0);
+(4, 'Debas', 'Thomas', 'thomas.debas@team-it.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1', '1', 17, 3, '/IMG/Debas_Thomas_20141211_6675834.jpg', 1),
+(16, 'Devosse-Leger', 'Martin', 'mdevosse@team-it.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1 ', '1 ', 18, 1, '/IMG/Devosse-Leger_Martin_20141211_5704221.jpg', 1),
+(17, 'Vannoote', 'Romain', 'rvannoote@team-it.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1 ', '1 ', 7, 1, '/IMG/Vannoote_Romain_20141211_2065165.jpg', 1),
+(18, 'Stalter', 'Marianne', 'mstalter@team-it.fr', 'd41d8cd98f00b204e9800998ecf8427e', '2 ', '1 ', 12, 1, '/IMG/Stalter_Marianne_20141211_3736660.jpg', 1),
+(19, 'Maurice', 'Remy', 'rmaurice@team-it.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1 ', '2 ', 18, 1, '/IMG/Maurice_Remy_20141211_7607976.jpg', 1),
+(20, 'Jagoury', 'Matthieu', 'mjagoury@team-it.fr', 'd41d8cd98f00b204e9800998ecf8427e', '1 ', '1 ', 10, 1, '/IMG/Jagoury_Matthieu_20141211_3835197.jpg', 2),
+(21, 'Kaczmarek', ' Jeremy', 'jkaczmarek@team-it.fr', 'd41d8cd98f00b204e9800998ecf8427e', '2 ', '1 ', 17, 1, '/IMG/Kaczmarek_ Jeremy_20141211_3467928.jpg', 1);
 
 --
 -- Contraintes pour les tables exportées
@@ -138,3 +126,8 @@ ALTER TABLE `utilisateur`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+/*Alter table utilisateur ADD nbVote int Not null Default 0;*/
+/*Alter table medias ADD nbVote int Not null Default 0;*/
+/*Alter table medias ADD note int Not null Default 0;*/
