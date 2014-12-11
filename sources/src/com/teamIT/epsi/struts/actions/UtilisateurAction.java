@@ -1,6 +1,7 @@
 package com.teamIT.epsi.struts.actions;
 
 import java.io.File;
+import java.net.URI;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -157,9 +158,9 @@ public class UtilisateurAction extends BaseAction implements ModelDriven<Utilisa
 		}
 		
 		model.filename = model.utilisateur.nom + "_" + model.utilisateur.prenom + "_" + dm.date() + "_" + dm.random() + ".jpg";
-		String classPath = UtilisateurAction.class.getClassLoader().getResource(UtilisateurAction.class.getName().replaceAll("\\.", "/" )+".class").getPath();
-		String[] tokens = classPath.split(".metadata");
-		model.destPath = tokens[0] + "Trombinoscope/sources/webapp/IMG/";
+		File inputFile = new File(new URI(this.getClass().getClassLoader().getResource("").toString()));
+		String[] chemin2 = inputFile.toString().split(".metadata");
+		model.destPath = chemin2[0] + "Trombinoscope/sources/webapp/IMG/";
 		File destFile  = new File(model.destPath, model.filename);
     	FileUtils.copyFile(model.file, destFile);
     	model.utilisateur.setChemin("/IMG/" + model.filename);
