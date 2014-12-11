@@ -62,7 +62,7 @@
 					<s:iterator value="mediasList">
 					  <div class="col-sm-6 col-md-3">
 					    <div class="thumbnail">
-					      <img src='<s:property value="chemin"/>' class="img-rounded">
+					      <img src='${pageContext.request.contextPath}<s:property value="chemin"/>' class="img-rounded">
 					      <div class="caption">
 					        <div class="basic" style="margin:auto" data-average=<s:property value="note"/> ></div>
 					      </div>

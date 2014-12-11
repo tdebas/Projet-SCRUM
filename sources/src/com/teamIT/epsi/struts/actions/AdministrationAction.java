@@ -333,12 +333,6 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 		return SUCCESS;
 	}
 	
-	public void media(Integer i) throws Exception{
-		Utilisateur utilisateur = uDAO.getUserById(i);
-		model.media = new Medias(utilisateur.getChemin(), utilisateur);
-		mDAO.saveOrUpdate(model.media);
-	}
-	
 	public AdministrationModel getModel() {
 		return model;
 	}
