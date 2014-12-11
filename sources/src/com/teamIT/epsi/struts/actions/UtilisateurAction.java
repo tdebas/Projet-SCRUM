@@ -159,8 +159,8 @@ public class UtilisateurAction extends BaseAction implements ModelDriven<Utilisa
 		
 		model.filename = model.utilisateur.nom + "_" + model.utilisateur.prenom + "_" + dm.date() + "_" + dm.random() + ".jpg";
 		File inputFile = new File(new URI(this.getClass().getClassLoader().getResource("").toString()));
-		String[] chemin2 = inputFile.toString().split(".metadata");
-		model.destPath = chemin2[0] + "Trombinoscope/sources/webapp/IMG/";
+		String[] chemin2 = inputFile.toString().split("WEB-INF");
+		model.destPath = chemin2[0] + "IMG\\";
 		File destFile  = new File(model.destPath, model.filename);
     	FileUtils.copyFile(model.file, destFile);
     	model.utilisateur.setChemin("/IMG/" + model.filename);
