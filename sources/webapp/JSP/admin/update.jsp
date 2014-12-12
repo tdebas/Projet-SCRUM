@@ -117,7 +117,6 @@
 	  if($('#empty').text() == ""){
 		  $('#hide').addClass('hide');
 	  }
-	  
-	  $('#avatar').attr("src", "${pageContext.request.contextPath}/IMG/photo.jpg");
+
   });
 </script>

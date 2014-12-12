@@ -67,16 +67,6 @@
 <s:include value="/JSP/layout/footer.jsp" />
 <script type="text/javascript">
   $(document).ready(function(){
-	
-	  function loadingUser(){
-         $.ajax({
-           type: "POST",
-           url: "/trombi/administration_loadUserRemove",
-           data: {nom: $("#select_user_remove").val()},
-           success: function(){
-           }
-         });
-	  }
  
 	  if($('#empty').text() == ""){
 		  $('#hide').addClass('hide');
