@@ -81,7 +81,7 @@
 			 <s:form theme="simple" cssClass="form-horizontal" role="form" action="administration_changePicture" method="POST" enctype="multipart/form-data">
 			 	<s:hidden name="utilisateur.idUtilisateur" value="%{utilisateur.idUtilisateur}" />
 			 	<div class="form-group">
-	  				<label for="edit_form" class="col-sm-3 control-label">Photo *.jpg</label>
+	  				<label for="edit_form" class="col-sm-3 control-label">Picture *.jpg</label>
 		    		<div class="col-sm-9">
 		      			<p style="text-align:left"><s:file name="upload" label="File" accept="image/jpeg" /></p>
 		    		</div>

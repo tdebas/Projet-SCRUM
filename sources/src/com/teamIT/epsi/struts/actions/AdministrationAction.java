@@ -190,7 +190,7 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 		
 		uDAO.saveOrUpdate(model.utilisateur);
 		
-		addActionMessage("Vous venez d'ajouter l'utilisateur " + model.utilisateur.nom + " " + model.utilisateur.prenom +".");
+		addActionMessage("You just added the user " + model.utilisateur.nom + " " + model.utilisateur.prenom +".");
 		
 		return execute();
 	}
@@ -251,7 +251,7 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 		
 		uDAO.update(model.utilisateur);
 		
-		addActionMessage("Vous venez de modifier l'utilisateur " + model.utilisateur.nom + " " + model.utilisateur.prenom +".");
+		addActionMessage("You just updated the user " + model.utilisateur.nom + " " + model.utilisateur.prenom +".");
 		
 		return SUCCESS;
 	}
@@ -279,7 +279,7 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 		mDAO.save(media);
 		uDAO.update(model.utilisateur);
 		
-		addActionMessage("Vous venez de changer l'image de l'utilisateur " + model.utilisateur.nom + " " + model.utilisateur.prenom +".");
+		addActionMessage("You juste change the picture of "+ model.utilisateur.nom + " " + model.utilisateur.prenom +".");
 		
 		return SUCCESS;
 	}
@@ -319,7 +319,7 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 		
 		uDAO.delete(model.utilisateur);
 		
-		addActionMessage("Vous venez de supprimer l'utilisateur " + model.utilisateur.nom + " " + model.utilisateur.prenom +".");
+		addActionMessage("You just deleted the user " + model.utilisateur.nom + " " + model.utilisateur.prenom +".");
 		
 		return SUCCESS;
 	}
@@ -329,7 +329,7 @@ public class AdministrationAction extends BaseAction implements ModelDriven<Admi
 		model.droit = dDAO.getDroitById(model.role);
 		model.utilisateur.setDroit(model.droit);
 		uDAO.saveOrUpdate(model.utilisateur);
-		addActionMessage("Vous venez de modifier les droits de l'utilisateur " + model.utilisateur.nom + " " + model.utilisateur.prenom +".");
+		addActionMessage("You just changing roles of " + model.utilisateur.nom + " " + model.utilisateur.prenom +".");
 		return SUCCESS;
 	}
 	
